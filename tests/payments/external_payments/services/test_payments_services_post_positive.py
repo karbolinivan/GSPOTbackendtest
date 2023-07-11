@@ -31,7 +31,8 @@ class TestPaymentsPostList:
         assert_status_code(response=response, expected=expected)
         assert_json_by_model(response=response, model=External_Payments)
 
-        service_id = response.json()["id"]
-        delete_service(service_id)
+        service_id = response.json().get("id")
+        if service_id:
+            delete_service(service_id)
 
         print(response.text)
