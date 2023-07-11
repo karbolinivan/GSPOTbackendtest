@@ -12,7 +12,7 @@ from source.base.validator import (assert_status_code, assert_json_by_model, ass
 @allure.story('Services')
 @allure.suite('Test get services')
 @pytest.mark.smoke
-class TestPaymentsList:
+class TestPaymentsGetList:
 
     @allure.title('Test external payments services list')
     @allure.description('Проверка успешного ответа [200] при запросе списка сервисов оплаты')
