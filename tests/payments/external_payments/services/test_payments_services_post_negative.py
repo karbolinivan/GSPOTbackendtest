@@ -19,8 +19,6 @@ class TestPaymentsPostList:
         ("", 400, ExpectedJSON.FIELD_CANNOT_BE_EMPTY.value),
         ("fhjthgld3845unfjlcns30567fgcjk", 400, ExpectedJSON.PAYMENT_SERVICE_EXCEEDED_NAME_LENGTH.value),
         (" ", 400, ExpectedJSON.FIELD_CANNOT_BE_EMPTY.value),
-        # empty body TODO
-        # Создать дубликат поля "name" с разными значениями TODO
     ])
     def test_external_payments_services_negative_input_value_post(self, name, expected, message):
         response = create_service({"name": name})
@@ -32,3 +30,38 @@ class TestPaymentsPostList:
         delete_service(service_id)
         
         print(response.text)
+
+
+    @allure.title('Tests of creating new external payments services')
+    @allure.description('Check unsuccessful response [400] when creating a payment service with an empty body')
+    def test_external_payments_services_empty_body_post(self):
+        response = create_service({})
+
+        assert_status_code(response=response, expected=400)
+        assert_json_by_model(response=response, model=External_Payments)
+
+        service_id = response.json()["id"]
+        delete_service(service_id)
+
+        print(response.text)
+
+    @allure.title('Tests of creating new external payments services')
+    @allure.description('Check unsuccessful response [400] when creating a payment service with two different names')
+    def test_external_payments_services_two_names_post(self):
+        names = ["service1", "service2"]
+        responses = []
+
+        for name in names:
+            json_body = {"name": name}
+            response = create_service(json_body)
+
+            assert_status_code(response=response, expected=400)
+            assert_json_by_model(response=response, model=External_Payments)
+
+            responses.append(response)
+
+        for response in responses:
+            service_id = response.json()["id"]
+            delete_service(service_id)
+
+        print(responses)
