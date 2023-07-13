@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from source.api.payments.payments import create_service, delete_service
+from source.api.payments.payments import create_service, delete_service, get_services_list
 from source.schemas.payments.external_payments_services_schema import External_Payments
 from source.base.validator import (assert_status_code, assert_json_by_model, assert_json_key_value, assert_json_equal_json)
 
@@ -36,3 +36,38 @@ class TestPaymentsPostList:
             delete_service(service_id)
 
         print(response.text)
+
+
+
+    @allure.title('Tests for deleting external payments services')
+    @pytest.mark.parametrize("name", [
+        "مثال للزخرفة",
+        "WeBmAnY",
+        "вэб мани",
+        "qiwi",
+        "fhjthgld3845unfjlcns30567fgcjk",
+        "56565",
+        "&*^%$",
+        "four ",
+        " two",
+        "bank card",
+    ])
+    def test_external_payments_services_delete(self, name):
+        # Get the services list
+        response = get_services_list()
+        assert response.status_code == 200, "Failed to retrieve services list"
+
+        # Find the service ID based on the service name
+        services = response.json()
+        service_id = None
+        for service in services:
+            if service["name"] == name:
+                service_id = service["id"]
+                break
+
+        # Delete the service using the service ID
+        assert service_id is not None, f"Failed to find service with name: {name}"
+        delete_response = delete_service(service_id)
+        assert delete_response.status_code == 200, f"Failed to delete service with name: {name}"
+        print(response.text)
+        print(123)
