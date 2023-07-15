@@ -17,6 +17,11 @@ class TypeRequirementsEnum(Enum):
     RECOMMEND = 'RECOMMEND'
 
 
+class ShortSystemReqSerializers(BaseModel):
+    id: Optional[UUID] = Field(None, title='Id')
+    typeRequirements: TypeRequirementsEnum = Field(..., title='System requirement')
+
+
 class SystemRequirement(BaseModel):
     id: Optional[UUID] = Field(None, title='Id')
     operatingSystem: OperatingSystemEnum = Field(..., title='Operation system')

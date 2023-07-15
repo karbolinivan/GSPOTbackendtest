@@ -14,7 +14,6 @@ class Community(str, Enum):
 class Core(str, Enum):
     DLC = f'{BASE_URL}core/dlc/'
     PRODUCT = f'{BASE_URL}core/product/'
-    PRODUCTS = f'{BASE_URL}core/products/'
     SYSTEM_REQUIREMENT = f'{BASE_URL}core/system_requirement/'
 
     def __str__(self) -> str:
