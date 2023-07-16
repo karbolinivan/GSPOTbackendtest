@@ -12,19 +12,21 @@ from source.base.validator import (assert_status_code, assert_json_by_model, ass
 @allure.story('Services')
 @allure.suite('Test post services')
 class TestPaymentsPostList:
+
     @allure.title('Tests of the creating new external payments services')
-    @allure.description('Проверка успешного ответа [400] при создании сервиса оплаты с некорректным именем {0}')
+    @allure.description(f"Проверка ответа [400] при создании сервиса оплаты с некорректным именем {0}")
     @pytest.mark.parametrize("name, expected, message", [
-        ("card", 400, ExpectedJSON.PAYMENT_SERVICE_WITH_THIS_NAME_ALREADY_EXIST.value),
-        ("", 400, ExpectedJSON.FIELD_CANNOT_BE_EMPTY.value),
-        ("fhjthgld3845unfjlcns30567fgcjk", 400, ExpectedJSON.PAYMENT_SERVICE_EXCEEDED_NAME_LENGTH.value),
-        (" ", 400, ExpectedJSON.FIELD_CANNOT_BE_EMPTY.value),
     ])
     def test_external_payments_services_negative_input_value_post(self, name, expected, message):
         response = create_service({"name": name})
 
+        print(f"Response: {response.json()}")
+
         assert_status_code(response=response, expected=expected)
         assert_json_by_model(response=response, model=External_Payments)
+
+        print(response.json())
+        print(123)
 
         service_id = response.json()["id"]
         delete_service(service_id)

@@ -6,7 +6,7 @@ BASE_URL = "https://payments.alpha.g-spot.website/api/v1/"
 
 class External_Payments(str, Enum):
     ACCEPT_PAYMENT = f'{BASE_URL}external_payments/accept_payment/'
-    COMISSIONS = f'{BASE_URL}external_payments/comissions/'
+    COMISSIONS = f'{BASE_URL}external_payments/commissions/'
     SERVICES = f'{BASE_URL}external_payments/services/'
 
     def __str__(self) -> str:
