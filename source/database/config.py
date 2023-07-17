@@ -2,8 +2,12 @@ from pydantic import BaseSettings
 
 
 class ConnectionSettings(BaseSettings):
-    host: str = "127.0.0.1"
-    port: str = "5433"
-    database: str = "test"
-    login: str = "postgres"
-    password: str = "password"
+    host: str
+    port: str
+    database: str
+    login: str
+    password: str
+
+    class Config:
+        env_file = '../../.env'
+        env_file_encoding = "utf-8"
