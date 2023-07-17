@@ -53,7 +53,6 @@ class TestPaymentsPostList:
     @allure.title('Check if we can not create the service with an existing name')
     @allure.description(f"Проверка ответа [400] при создании сервиса оплаты с уже существующим именем")
     def test_external_payments_services_negative_create_duplicate_name_post(self):
-
         payload = {
             "name": "UNIQ"
         }

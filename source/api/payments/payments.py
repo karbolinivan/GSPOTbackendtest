@@ -28,12 +28,3 @@ def get_service(id_data, auth=None):
     response = Requests.get(url=url, auth=auth)
     return response
 
-# def test_delete_all():
-#     response = get_services_list()
-#     parsed_data = json.loads(response.text)
-#
-#     for item in parsed_data:
-#         service_id = item['id']
-#         r = delete_service(service_id)
-#         print(f"Deleted service with ID {service_id}. Status code: {r.status_code}")
-
