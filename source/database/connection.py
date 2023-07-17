@@ -1,5 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from source.database.config import ConnectionSettings
+
+settings = ConnectionSettings()
 
 
 class Database:
@@ -10,12 +13,12 @@ class Database:
             cls.__instance = super().__new__(cls)
         return cls.__instance
 
-    def __init__(self, login, password, host, port, database):
-        self.login = login
-        self.password = password
-        self.host = host
-        self.port = port
-        self.database = database
+    def __init__(self):
+        self.login = settings.login
+        self.password = settings.password
+        self.host = settings.host
+        self.port = settings.port
+        self.database = settings.database
         self.url = f'postgresql+psycopg2://{self.login}:{self.password}@{self.host}:{self.port}/{self.database}'
         self.engine = create_engine(self.url)
         self.Session = sessionmaker(bind=self.engine)

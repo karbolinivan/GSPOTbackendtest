@@ -1,5 +1,9 @@
-host = "127.0.0.1"
-port = "5433"
-database = "test"
-login = "postgres"
-password = "password"
+from pydantic import BaseSettings
+
+
+class ConnectionSettings(BaseSettings):
+    host: str = "127.0.0.1"
+    port: str = "5433"
+    database: str = "test"
+    login: str = "postgres"
+    password: str = "password"
