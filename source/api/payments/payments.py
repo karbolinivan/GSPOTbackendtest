@@ -18,18 +18,22 @@ def create_service(json, auth=None, name=""):
     return response
 
 @allure.step('Delete service')
-def delete_service(service_id, auth=None):
-    url = f"{External_Payments.SERVICES}{service_id}/"
+def delete_service(id_data, auth=None):
+    url = f"{External_Payments.SERVICES}{id_data}/"
     response = Requests.delete(url=url, auth=auth)
     return response
 
+def get_service(id_data, auth=None):
+    url = f'{External_Payments.SERVICES}{id_data}/'
+    response = Requests.get(url=url, auth=auth)
+    return response
 
-def test_delete_all():
-    response = get_services_list()
-    parsed_data = json.loads(response.text)
-
-    for item in parsed_data:
-        service_id = item['id']
-        r = delete_service(service_id)
-        print(f"Deleted service with ID {service_id}. Status code: {r.status_code}")
+# def test_delete_all():
+#     response = get_services_list()
+#     parsed_data = json.loads(response.text)
+#
+#     for item in parsed_data:
+#         service_id = item['id']
+#         r = delete_service(service_id)
+#         print(f"Deleted service with ID {service_id}. Status code: {r.status_code}")
 
