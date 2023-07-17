@@ -42,8 +42,6 @@ class TestPaymentsPostList:
         response = create_service({"name": name})
         assert_status_code(response=response, expected=expected)
         assert_json_by_model(response=response, model=External_Payments)
-        print(response.json())
-        print(response.text)
 
         # Deleting created data
         service_id = response.json().get("id")
@@ -70,8 +68,6 @@ class TestPaymentsPostList:
         response_2 = create_service(json=payload)
         assert_status_code(response=response_2, expected=400)
         assert_json_equal_json(response=response_2, json=expected_1)
-        print(expected_1)
-        print(123)
 
         response_3 = delete_service(id_data=id_test_1)
         assert_status_code(response=response_3, expected=204)
