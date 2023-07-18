@@ -4,7 +4,7 @@ import pytest
 
 from source.schemas.subgenre import Subgenre
 from source.base.generator import Generator
-from source.api.subgenre import update_subgenre_partly
+from source.api.subgenre import update_subgenre_partially
 from source.base.validator import (assert_status_code, assert_json_equal_json,
                                    assert_json_by_model, assert_json_key_value)
 
@@ -22,7 +22,7 @@ class TestSubgenrePartialUpdate:
         id_test = create_delete_test_subgenre.json().get('id')
 
         payload = Generator.object(model=Subgenre)
-        response = update_subgenre_partly(id_data=id_test, json=payload)
+        response = update_subgenre_partially(id_data=id_test, json=payload)
         payload['id'] = id_test
 
         assert_status_code(response=response, expected=200)
