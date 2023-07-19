@@ -6,12 +6,21 @@ from source.api.languages import create_languages, delete_languages
 from source.api.product_languages import create_product_languages, delete_product_languages
 from source.api.subgenre import create_subgenre, delete_subgenre
 from source.base.generator import Generator
+from source.database.connection import Database
+from source.enums.path import Path
 from source.schemas.games.system_requirement import SystemRequirement
 from source.schemas.genre_schema import Genre
 from source.schemas.laguage_schema import Language
 from source.base.validator import assert_status_code
 from source.schemas.product_languages import ProductLanguages
 from source.schemas.subgenre import Subgenre
+
+
+@pytest.fixture()
+def db_games_connection():
+    db_games = Database(path_settings=Path.GAMES).connect()
+    yield db_games
+    db_games.close()
 
 
 @pytest.fixture()

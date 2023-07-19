@@ -1,6 +1,16 @@
 import pytest
 
 
+def _create_data(api, json):
+    response = api(json=json)
+    assert response.status_code == 201, f'\nTest data was not created'
+
+
+@pytest.fixture
+def create_data():
+    return _create_data
+
+
 def _delete_created_data(api, id_data):
     response_delete = api(id_data=id_data)
     assert response_delete.status_code == 204
