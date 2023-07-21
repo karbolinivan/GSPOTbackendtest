@@ -3,9 +3,10 @@ from enum import Enum
 
 class ExpectedJSON(Enum):
     NOT_FOUND = {
-        "detail": "Страница не найдена"
+        "detail": "Страница не найдена."
     }
     FIELD_CANNOT_BE_EMPTY = ['This field may not be blank']
+    FIELD_CANNOT_BE_EMPTY_RUS = ['Это поле не может быть пустым.']
     FIELD_CANNOT_CONTAINS_MORE_100 = ['Убедитесь, что это значение содержит не более 100 символов.']
 
     PAYMENT_SERVICE_WITH_THIS_NAME_EXISTS = ['payment service with this name already exists.']

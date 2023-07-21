@@ -8,7 +8,7 @@ from source.base.validator import assert_status_code, assert_json_by_model
 
 @allure.epic('Games')
 @allure.feature('Utils')
-@allure.story('Filters')
+@allure.story('Filter by price')
 @allure.suite('Test get filters prices list')
 @pytest.mark.smoke
 class TestFiltersPrices:

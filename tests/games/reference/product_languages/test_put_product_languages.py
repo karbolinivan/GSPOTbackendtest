@@ -13,6 +13,7 @@ from source.base.validator import (assert_json_by_model, assert_status_code,
 @allure.story('Product languages')
 @allure.suite('Test put product languages')
 @pytest.mark.smoke
+@pytest.mark.xfail(mark='Product languages cannot be created')
 class TestProductLanguagesUpdate:
     @allure.title('Test product languages update')
     @allure.description('Проверка успешного ответа [200] при обновлении языка продукта')

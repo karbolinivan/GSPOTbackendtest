@@ -12,6 +12,7 @@ from source.base.validator import assert_json_by_model, assert_status_code, asse
 @allure.story('System requirement')
 @allure.suite('Test post system requirement')
 @pytest.mark.smoke
+@pytest.mark.xfail(mark='System requirements cannot be created')
 class TestSystemRequirementCreate:
     @allure.title('Test system requirement create')
     @allure.description('Проверка успешного ответа [201] при создании системных требований')

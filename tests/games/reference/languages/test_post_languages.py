@@ -38,7 +38,7 @@ class TestLanguagesCreateRegression:
     @allure.title('Test languages create with checking the boundary values')
     @allure.description('Проверка граничных значений поля "name" при создании языка')
     @pytest.mark.parametrize("value, expected, massage", [
-        ("", 400, ExpectedJSON.FIELD_CANNOT_BE_EMPTY.value),
+        ("", 400, ExpectedJSON.FIELD_CANNOT_BE_EMPTY_RUS.value),
         ("e", 201, None),
         ("qwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiop", 201,
          None),
@@ -73,7 +73,7 @@ class TestLanguagesCreateRegression:
             id_data = response.json().get("id")
             delete_created_data(api=delete_languages, id_data=id_data)
 
-        expected = ExpectedJSON.key_value(key='name', value=ExpectedJSON.FIELD_CANNOT_BE_EMPTY.value)
+        expected = ExpectedJSON.key_value(key='name', value=ExpectedJSON.FIELD_CANNOT_BE_EMPTY_RUS.value)
         assert_status_code(response=response, expected=400)
         assert_json_equal_json(response=response, json=expected)
 

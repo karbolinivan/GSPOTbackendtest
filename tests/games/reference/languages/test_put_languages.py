@@ -15,7 +15,6 @@ from source.base.validator import (assert_json_by_model, assert_status_code,
 @allure.suite('Test put languages')
 @pytest.mark.smoke
 class TestLanguagesUpdate:
-
     @allure.title('Test languages update')
     @allure.description('Проверка успешного ответа [200] при обновлении языка')
     def test_languages_update(self, create_delete_test_languages):
@@ -46,6 +45,6 @@ class TestLanguagesUpdateRegression:
         payload = Generator.object(model=Language, name=value)
         response = update_languages(id_data=id_test, json=payload)
 
-        expected = ExpectedJSON.key_value(key='name', value=ExpectedJSON.FIELD_CANNOT_BE_EMPTY.value)
+        expected = ExpectedJSON.key_value(key='name', value=ExpectedJSON.FIELD_CANNOT_BE_EMPTY_RUS.value)
         assert_status_code(response=response, expected=400)
         assert_json_equal_json(response=response, json=expected)

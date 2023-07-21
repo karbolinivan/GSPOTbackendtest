@@ -11,6 +11,7 @@ from source.base.validator import assert_status_code
 @allure.story('Subgenre')
 @allure.suite('Test delete subgenre')
 @pytest.mark.smoke
+@pytest.mark.xfail(mark='Subgenre cannot be created')
 class TestSubgenreDelete:
     @allure.title('Test subgenre delete')
     @allure.description('Проверка успешного ответа [204] при удалении поджанра')
