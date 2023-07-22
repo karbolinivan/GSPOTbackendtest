@@ -14,7 +14,7 @@ from source.base.validator import (assert_status_code, assert_json_equal_json,
 @allure.story('Subgenre')
 @allure.suite('Test patch subgenre')
 @pytest.mark.smoke
-@pytest.mark.xfail(mark='Subgenre cannot be created')
+@pytest.mark.xfail(reason='Subgenre cannot be created')
 class TestSubgenrePartialUpdate:
 
     @allure.title('Test subgenre partial update')

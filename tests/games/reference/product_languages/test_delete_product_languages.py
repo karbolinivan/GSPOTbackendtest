@@ -10,7 +10,7 @@ from source.base.validator import assert_status_code
 @allure.story('Product languages')
 @allure.suite('Test delete product languages')
 @pytest.mark.smoke
-@pytest.mark.xfail(mark='Product languages cannot be created')
+@pytest.mark.xfail(reason='Product languages cannot be created')
 class TestProductLanguagesDelete:
     @allure.title('Test product languages delete')
     @allure.description('Проверка успешного ответа [204] при удалении языка продукта')
