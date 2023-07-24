@@ -8,7 +8,7 @@ docker-compose run autotests pytest --alluredir=allure-results
 ```
 2. Start allure report
 ```
-allure serve allure_results
+allure serve allure-results
 ```
 
 ## Commands
@@ -25,7 +25,7 @@ python3 -m venv venv
 venv/Scripts/activate
 ```
 
-Installing requirements for Linux:
+Installing requirements:
 ```
 pip3 install -r requirements.txt
 ```
@@ -44,12 +44,12 @@ scoop install allure
 
 Generate Allure report:
 ```
-pytest -s -v --alluredir=allure_results
+pytest -s -v --alluredir=allure-results
 ```
 
 Start Allure report:
 ```
-allure serve allure_results
+allure serve allure-results
 ```
 
 ### Docker

@@ -17,9 +17,11 @@ class TestSystemRequirementPartialUpdate:
     @allure.description('Проверка успешного ответа [200] при частичном обновлении системных требований')
     def test_system_requirement_partial_update(self):
         # id_test = create_delete_test_system_requirement.json().get('id')
-        id_test = "9422a31d-f159-4bf4-98ce-90ee736a677f"
-        payload = Generator.object(model=SystemRequirement, include='deviceGraphics')
-
+        # payload = Generator.object(model=SystemRequirement, include='deviceGraphics')
+        id_test = "6f98f5fe-8b36-4bc8-874e-0feeb910747a"
+        payload = {
+            "deviceGraphics": "string"
+        }
         response = update_system_requirement_partly(id_data=id_test, json=payload)
         payload['id'] = id_test
 

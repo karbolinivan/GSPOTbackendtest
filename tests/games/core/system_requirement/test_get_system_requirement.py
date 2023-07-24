@@ -23,7 +23,7 @@ class TestSystemRequirement:
     @allure.description('Проверка успешного ответа [200] при запросе системных требований по ID.')
     def test_system_requirement_read(self):
         # id_test = create_delete_test_system_requirement.json().get('id')
-        id_test = "9c92a75e-26b0-4f42-9b10-41e4f02f9411"
+        id_test = "6f98f5fe-8b36-4bc8-874e-0feeb910747a"
         response = get_system_requirement(id_data=id_test)
         assert_status_code(response=response, expected=200)
         assert_json_by_model(response=response, model=SystemRequirement)

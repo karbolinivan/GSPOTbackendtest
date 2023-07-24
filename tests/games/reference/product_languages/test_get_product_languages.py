@@ -23,7 +23,7 @@ class TestProductLanguages:
     @allure.description('Проверка успешного ответа [200] при запросе списка языков продукта')
     def test_product_languages_read(self):
         # id_test = create_delete_test_product_languages.json().get('id')
-        id_test = 21
+        id_test = 50
         response = get_product_languages(id_data=id_test)
         assert_status_code(response=response, expected=200)
         assert_json_by_model(response=response, model=ProductLanguages)
