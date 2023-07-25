@@ -36,7 +36,7 @@ def update_subgenre(id_data: int, json, auth=tester_auth):
 
 
 @allure.step('Update the subgenre partly with id "{id_data}"')
-def update_subgenre_partly(id_data: int, json, auth=tester_auth):
+def update_subgenre_partially(id_data: int, json, auth=tester_auth):
     url = f'{Reference.SUBGENRE}{id_data}/'
     response = Requests.patch(url=url, json=json, auth=auth)
     return response

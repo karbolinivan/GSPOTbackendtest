@@ -2,6 +2,7 @@ import allure
 import pytest
 
 from source.api.payments.payments import get_services_list, create_service, delete_service, get_service
+from source.base.client import Requests
 from source.base.validator import (assert_status_code, assert_json_by_model, assert_json_equal_json)
 from source.enums.expected import ExpectedJSON
 from source.schemas.payments.external_payments_services_schema import External_Payments
@@ -57,3 +58,18 @@ class TestPaymentsGetList:
 
         response_3 = delete_service(id_data=id_test)
         assert_status_code(response=response_3, expected=204)
+
+    @allure.title(f'Check the response 404 if id is incorrect {1/2}')
+    @allure.description(f'Проверка ответа [404] при запросе сервиса оплаты с некорректным id {1/2}')
+    def test_services_id_negative_input_non_existent_id_get_1(self):
+        response = get_service(id_data="1/2")
+        assert_status_code(response=response, expected=404)
+        assert "Page not found " in response.text
+
+    @allure.title(f'Check the response 404 if id is incorrect {1,2}')
+    @allure.description(f'Проверка ответа [404] при запросе сервиса оплаты с некорректным id {1,2}')
+    def test_services_id_negative_input_non_existent_id_get_2(self):
+        response = get_service(id_data="1,2")
+        assert_status_code(response=response, expected=404)
+        expected = ExpectedJSON.PAYMENT_SERVICE_NOT_FOUND.value
+        assert_json_equal_json(response=response, json=expected)
