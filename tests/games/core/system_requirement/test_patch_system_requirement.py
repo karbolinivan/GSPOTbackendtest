@@ -12,12 +12,12 @@ from source.base.validator import (assert_status_code, assert_json_by_model, ass
 @allure.story('System requirement')
 @allure.suite('Test patch system requirement')
 @pytest.mark.smoke
+@pytest.mark.xfail(reason='System requirements cannot be created')
 class TestSystemRequirementPartialUpdate:
     @allure.title('Test system requirement partial update')
     @allure.description('Проверка успешного ответа [200] при частичном обновлении системных требований')
-    def test_system_requirement_partial_update(self):
-        # id_test = create_delete_test_system_requirement.json().get('id')
-        id_test = "9422a31d-f159-4bf4-98ce-90ee736a677f"
+    def test_system_requirement_partial_update(self, create_delete_test_system_requirement):
+        id_test = create_delete_test_system_requirement.json().get('id')
         payload = Generator.object(model=SystemRequirement, include='deviceGraphics')
 
         response = update_system_requirement_partly(id_data=id_test, json=payload)

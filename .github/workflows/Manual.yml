@@ -1,0 +1,63 @@
+name: Manual
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: Choose target
+#        required: true
+        default: all_tests
+        type: choice
+        options:
+          - all_tests
+          - smoke_tests
+          - regression_tests
+
+jobs:
+  Autotests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Compose
+        uses: ndeloof/install-compose-action@v0.0.1
+        with:
+          version: v2.1.0 # defaults to 'latest'
+          legacy: true
+      - run: docker-compose --version
+
+      - name: all_tests
+        if: "github.event.inputs.deployment_target == 'all_tests'"
+        run: docker-compose run autotests pytest --alluredir=allure-results
+      - name: smoke_tests
+        if: "github.event.inputs.deployment_target == 'smoke_tests'"
+        run: docker-compose run autotests pytest -m smoke --alluredir=allure-results
+      - name: regression_tests
+        if: "github.event.inputs.deployment_target == 'regression_tests'"
+        run: docker-compose run autotests pytest -m regression --alluredir=allure-results
+
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+#        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Build Allure report
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: allure-results
+          allure_history: allure-history
+          keep_reports: 5
+          allure_report: allure_report
+
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history

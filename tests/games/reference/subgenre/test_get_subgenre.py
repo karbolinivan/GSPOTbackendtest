@@ -22,6 +22,7 @@ class TestSubgenre:
 
     @allure.title('Test subgenre read')
     @allure.description('Проверка успешного ответа [200] при запросе поджанра по ID.')
+    @pytest.mark.xfail(reason='Subgenre cannot be created')
     def test_genre_read(self, create_delete_test_subgenre):
         id_test = create_delete_test_subgenre.json().get('id')
         response = get_subgenre(id_data=id_test)

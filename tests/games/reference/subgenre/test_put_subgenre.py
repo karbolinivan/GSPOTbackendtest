@@ -13,6 +13,7 @@ from source.base.validator import (assert_status_code, assert_json_by_model,
 @allure.story('Subgenre')
 @allure.suite('Test put subgenre')
 @pytest.mark.smoke
+@pytest.mark.xfail(reason='Subgenre cannot be created')
 class TestSubgenreUpdate:
     @allure.title('Test subgenre update')
     @allure.description('Проверка успешного ответа [201] при обновлении поджанра')

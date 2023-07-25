@@ -7,7 +7,7 @@ from source.enums.games import Reference
 
 @allure.step('Get the product language by id "{id_data}"')
 def get_product_languages(id_data: int, auth=tester_auth):
-    url = f'{Reference.PRODUCT_LANGUAGES}{id_data}'
+    url = f'{Reference.PRODUCT_LANGUAGES}{id_data}/'
     response = Requests.get(url=url, auth=auth)
     return response
 

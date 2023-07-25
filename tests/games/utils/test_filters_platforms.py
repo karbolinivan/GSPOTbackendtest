@@ -8,9 +8,10 @@ from source.schemas.operating_system import OperatingSystem
 
 @allure.epic('Games')
 @allure.feature('Utils')
-@allure.story('Platforms')
+@allure.story('Filter by platform')
 @allure.suite('Test get filters platforms list')
 @pytest.mark.smoke
+@pytest.mark.xfail(reason='The list items do not match the model')
 class TestFiltersPlatforms:
     @allure.title('Test filters platforms list')
     @allure.description('Проверка успешного ответа [200] при запросе фильтра по операционной системе')

@@ -1,8 +1,7 @@
+import allure
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import Session
 from source.database.config import ConnectionSettings
-
-settings = ConnectionSettings()
 
 
 class Database:
@@ -13,22 +12,27 @@ class Database:
             cls.__instance = super().__new__(cls)
         return cls.__instance
 
-    def __init__(self):
-        self.login = settings.login
-        self.password = settings.password
-        self.host = settings.host
-        self.port = settings.port
-        self.database = settings.database
+    def __init__(self, path_settings):
+        self.settings = ConnectionSettings(_env_file=path_settings)
+        self.login = self.settings.login
+        self.password = self.settings.password
+        self.host = self.settings.host
+        self.port = self.settings.port
+        self.database = self.settings.database
         self.url = f'postgresql+psycopg2://{self.login}:{self.password}@{self.host}:{self.port}/{self.database}'
-        self.engine = create_engine(self.url)
-        self.Session = sessionmaker(bind=self.engine)
+        self.engine = None
         self.session = None
 
+    @allure.step('Connect to the database')
     def connect(self):
-        self.session = self.Session()
+        self.engine = create_engine(self.url)
+        self.session = Session(bind=self.engine)
         return self.session
 
+    @allure.step('Disconnect from the database')
     def close(self):
-        if self.session is not None:
+        if self.session or self.engine is not None:
             self.session.close()
+            self.engine.dispose()
             self.session = None
+            self.engine = None

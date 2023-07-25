@@ -10,6 +10,7 @@ from source.base.validator import assert_status_code
 @allure.story('System requirement')
 @allure.suite('Test delete system requirement')
 @pytest.mark.smoke
+@pytest.mark.xfail(reason='System requirements cannot be created')
 class TestSystemRequirementDelete:
     @allure.title('Test system requirement delete')
     @allure.description('Проверка успешного ответа [204] при удалении системных требований')

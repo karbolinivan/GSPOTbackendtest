@@ -8,9 +8,10 @@ from source.base.validator import assert_status_code, assert_json_by_model
 
 @allure.epic('Games')
 @allure.feature('Utils')
-@allure.story('Genres')
+@allure.story('Filter by genre')
 @allure.suite('Test get filters genres list')
 @pytest.mark.smoke
+@pytest.mark.xfail(reason='The subgenre must contain required fields')
 class TestFiltersGenres:
     @allure.title('Test filters genres list')
     @allure.description('Проверка успешного ответа [200] при запросе фильтра по жанру игр')

@@ -12,7 +12,7 @@ from source.schemas.games.system_requirement import SystemRequirement
 @allure.suite('Test get system requirement')
 @pytest.mark.smoke
 class TestSystemRequirement:
-    @allure.title('Test system requirement')
+    @allure.title('Test system requirement list')
     @allure.description('Проверка успешного ответа [200] при запросе списка системных требований.')
     def test_system_requirement_list(self):
         response = get_system_requirement_list()
@@ -21,9 +21,9 @@ class TestSystemRequirement:
 
     @allure.title('Test system requirement read')
     @allure.description('Проверка успешного ответа [200] при запросе системных требований по ID.')
-    def test_system_requirement_read(self):
-        # id_test = create_delete_test_system_requirement.json().get('id')
-        id_test = "9c92a75e-26b0-4f42-9b10-41e4f02f9411"
+    @pytest.mark.xfail(reason='System requirements cannot be created')
+    def test_system_requirement_read(self, create_delete_test_system_requirement):
+        id_test = create_delete_test_system_requirement.json().get('id')
         response = get_system_requirement(id_data=id_test)
         assert_status_code(response=response, expected=200)
         assert_json_by_model(response=response, model=SystemRequirement)

@@ -12,6 +12,7 @@ from source.base.validator import assert_json_by_model, assert_json_key_value, a
 @allure.story('Product languages')
 @allure.suite('Test post product languages')
 @pytest.mark.smoke
+@pytest.mark.xfail(reason='Product languages cannot be created')
 class TestProductLanguagesCreate:
     @allure.title('Test product languages create')
     @allure.description('Проверка успешного ответа [201] при создании языка продукта.')

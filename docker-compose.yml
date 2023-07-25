@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  autotests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: GSpot
+    volumes:
+      - ./allure-results:/usr/project/allure-results
