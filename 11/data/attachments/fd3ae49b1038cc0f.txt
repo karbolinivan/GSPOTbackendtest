@@ -1,0 +1,28 @@
+29.07.2023_19:54:16.179489
+REQUEST: DELETE
+url: None
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: null
+
+29.07.2023_19:54:16.606055
+RESPONSE
+status code: 404
+headers: {
+  "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+  "Content-Length": "23",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Sat, 29 Jul 2023 19:54:16 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "detail": "Not found."
+}
