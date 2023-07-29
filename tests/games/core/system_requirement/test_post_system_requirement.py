@@ -3,6 +3,7 @@ import pytest
 
 from source.api.games.system_requirement import create_system_requirement, delete_system_requirement
 from source.base.generator import Generator
+from source.enums.data import Cases
 from source.schemas.games.system_requirement import SystemRequirement
 from source.base.validator import assert_json_by_model, assert_status_code, assert_json_equal_json
 
@@ -14,8 +15,9 @@ from source.base.validator import assert_json_by_model, assert_status_code, asse
 @pytest.mark.smoke
 @pytest.mark.xfail(reason='System requirements cannot be created')
 class TestSystemRequirementCreate:
-    @allure.title('Test system requirement create')
+    @allure.title(f'{Cases.GAMES["TG10"]["id"]}-Test system requirement create')
     @allure.description('Проверка успешного ответа [201] при создании системных требований')
+    @allure.testcase(name=Cases.GAMES["TG10"]["name"], url=Cases.GAMES["TG10"]["link"])
     def test_system_requirement_create(self, delete_created_data):
         payload = Generator.object(model=SystemRequirement, seed=10)
         response = create_system_requirement(json=payload)

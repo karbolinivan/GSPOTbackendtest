@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-
+from source.enums.data import Cases
 from source.schemas.subgenre import Subgenre
 from source.api.subgenre import get_subgenre_list, get_subgenre
 from source.base.validator import assert_status_code, assert_json_by_model, assert_json_key_value
@@ -13,8 +13,9 @@ from source.base.validator import assert_status_code, assert_json_by_model, asse
 @allure.suite('Test get subgenre')
 @pytest.mark.smoke
 class TestSubgenre:
-    @allure.title('Test subgenre list')
+    @allure.title(f'{Cases.GAMES["TG101"]["id"]}-Test subgenre list')
     @allure.description('Проверка успешного ответа [200] при запросе списка поджанров')
+    @allure.testcase(name=Cases.GAMES["TG101"]["name"], url=Cases.GAMES["TG101"]["link"])
     def test_subgenre_list(self):
         response = get_subgenre_list()
         assert_status_code(response=response, expected=200)

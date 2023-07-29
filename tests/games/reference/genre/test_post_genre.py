@@ -2,6 +2,7 @@ import allure
 import pytest
 
 from source.base.generator import Generator
+from source.enums.data import Cases
 from source.schemas.genre_schema import Genre
 from source.api.genre import create_genre, delete_genre
 from source.base.validator import assert_json_by_model, assert_json_key_value, assert_status_code
@@ -14,8 +15,9 @@ from source.base.validator import assert_json_by_model, assert_json_key_value, a
 @pytest.mark.smoke
 class TestGenreCreate:
 
-    @allure.title('Test genre create')
+    @allure.title(f'{Cases.GAMES["TG74"]["id"]}-Test genre create')
     @allure.description('Проверка успешного ответа [201] при создании жанра')
+    @allure.testcase(name=Cases.GAMES["TG74"]["name"], url=Cases.GAMES["TG74"]["link"])
     def test_genre_create(self, delete_created_data):
         payload = Generator.object(model=Genre)
         response = create_genre(json=payload)

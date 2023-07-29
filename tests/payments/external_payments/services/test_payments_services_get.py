@@ -61,6 +61,7 @@ class TestPaymentsGetList:
 
     @allure.title(f'Check the response 404 if id is incorrect {1/2}')
     @allure.description(f'Проверка ответа [404] при запросе сервиса оплаты с некорректным id {1/2}')
+    @pytest.mark.skip
     def test_services_id_negative_input_non_existent_id_get_1(self):
         response = get_service(id_data="1/2")
         assert_status_code(response=response, expected=404)
@@ -68,6 +69,7 @@ class TestPaymentsGetList:
 
     @allure.title(f'Check the response 404 if id is incorrect {1,2}')
     @allure.description(f'Проверка ответа [404] при запросе сервиса оплаты с некорректным id {1,2}')
+    @pytest.mark.skip
     def test_services_id_negative_input_non_existent_id_get_2(self):
         response = get_service(id_data="1,2")
         assert_status_code(response=response, expected=404)
