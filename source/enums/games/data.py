@@ -5,9 +5,8 @@ from source.enums.path import Path
 reader = Reader(path_file=Path.TEST_DATA, sheet="Games")
 
 
-class GamesData(Enum):
-    TG1 = reader.get_data(id_test="TG1")
-    TG2 = reader.get_data(id_test="TG2")
+class Games(Enum):
+    CASES = reader.get_dict()
 
     def __str__(self):
         return self.value
