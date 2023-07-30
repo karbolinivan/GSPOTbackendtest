@@ -1,0 +1,31 @@
+30.07.2023_21:15:08.313994
+REQUEST: POST
+url: https://payments.alpha.g-spot.website/api/v1/external_payments/services/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "name": "\u0432\u044d\u0431 \u043c\u0430\u043d\u0438"
+}
+
+30.07.2023_21:15:08.953037
+RESPONSE
+status code: 201
+headers: {
+  "Allow": "GET, POST, HEAD, OPTIONS",
+  "Content-Length": "35",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Sun, 30 Jul 2023 21:15:08 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "id": 977,
+  "name": "вэб мани"
+}

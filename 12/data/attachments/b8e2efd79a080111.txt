@@ -1,0 +1,31 @@
+30.07.2023_21:13:30.065375
+REQUEST: PATCH
+url: https://games.alpha.g-spot.website/api/v1/reference/genre/898/
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: null
+json: {
+  "name": "loss"
+}
+
+30.07.2023_21:13:31.053795
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+  "Content-Length": "24",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Sun, 30 Jul 2023 21:13:30 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "id": 898,
+  "name": "loss"
+}

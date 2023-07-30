@@ -1,0 +1,31 @@
+30.07.2023_21:13:32.208610
+REQUEST: POST
+url: https://games.alpha.g-spot.website/api/v1/reference/genre/
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: null
+json: {
+  "name": "including"
+}
+
+30.07.2023_21:13:33.245108
+RESPONSE
+status code: 201
+headers: {
+  "Allow": "GET, POST, HEAD, OPTIONS",
+  "Content-Length": "29",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Sun, 30 Jul 2023 21:13:33 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "id": 899,
+  "name": "including"
+}

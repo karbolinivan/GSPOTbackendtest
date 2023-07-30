@@ -1,0 +1,28 @@
+30.07.2023_21:13:40.442221
+REQUEST: DELETE
+url: None
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: null
+json: null
+
+30.07.2023_21:13:41.701141
+RESPONSE
+status code: 404
+headers: {
+  "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+  "Content-Length": "50",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Sun, 30 Jul 2023 21:13:41 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "detail": "Страница не найдена."
+}
