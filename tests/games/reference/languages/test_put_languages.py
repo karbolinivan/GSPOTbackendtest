@@ -45,7 +45,7 @@ class TestLanguagesUpdateRegression:
         Cases.get_parametrize(test_case="TG98"), Cases.get_parametrize(test_case="TG99")
     ])
     def test_languages_update_with_invalid_name(self, id_test, name, link, value, create_delete_test_languages):
-        allure.testcase(name=name, url=link)
+        allure.dynamic.testcase(name=name, url=link)
         id_test = create_delete_test_languages.json().get('id')
 
         response = update_languages(id_data=id_test, json=json.loads(value))

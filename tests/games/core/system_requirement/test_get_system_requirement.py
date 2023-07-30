@@ -21,7 +21,7 @@ class TestSystemRequirement:
         assert_status_code(response=response, expected=200)
         assert_json_by_model(response=response, model=SystemRequirement)
 
-    @allure.title(f'{Cases.GAMES["TG12"]["id"]}-Test system requirement list')
+    @allure.title(f'{Cases.GAMES["TG12"]["id"]}-Test system requirement read')
     @allure.title('Test system requirement read')
     @allure.description('Проверка успешного ответа [200] при запросе системных требований по ID.')
     @allure.testcase(name=Cases.GAMES["TG12"]["name"], url=Cases.GAMES["TG12"]["link"])

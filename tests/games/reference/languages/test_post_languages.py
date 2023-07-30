@@ -47,7 +47,7 @@ class TestLanguagesCreateRegression:
         Cases.get_parametrize(test_case="TG89")
     ])
     def test_languages_create_with_boundary_values(self, id_test, name, link, value, delete_created_data):
-        allure.testcase(name=name, url=link)
+        allure.dynamic.testcase(name=name, url=link)
         payload = json.loads(value)
         response = create_languages(json=payload)
         if len(payload["name"]) < 1:
@@ -78,7 +78,7 @@ class TestLanguagesCreateRegression:
     ])
     @pytest.mark.xfail(reason='Should the answer be 400?')
     def test_languages_create_with_invalid_name(self, id_test, name, link, value, delete_created_data):
-        allure.testcase(name=name, url=link)
+        allure.dynamic.testcase(name=name, url=link)
         payload = json.loads(value)
         response = create_languages(json=payload)
 
@@ -98,7 +98,7 @@ class TestLanguagesCreateRegression:
         Cases.get_parametrize(test_case="TG86")
     ])
     def test_languages_create_with_atypical_value(self, id_test, name, link, value, delete_created_data):
-        allure.testcase(name=name, url=link)
+        allure.dynamic.testcase(name=name, url=link)
         payload = json.loads(value)
         response = create_languages(json=payload)
 
