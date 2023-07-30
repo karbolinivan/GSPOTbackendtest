@@ -47,3 +47,19 @@ class TestPaymentsGetList:
         response_2 = delete_service(id_data=id_test)
         assert_status_code(response=response_2, expected=204)
 
+    @allure.title(f'Check the response 404 while deleting multiple services {1/2}')
+    @allure.description(f'Проверка ответа [404] при удалении нескольких сервисов оплаты {1/2}')
+    @pytest.mark.xfail(reason="Response text is too long (should be only error message)")
+    def test_services_id_negative_input_non_existent_id_get_1(self):
+        response = delete_service(id_data="1/2")
+        assert_status_code(response=response, expected=404)
+        expected = ExpectedJSON.PAYMENT_SERVICE_NOT_FOUND.value
+        assert_json_equal_json(response=response, json=expected)
+
+    @allure.title(f'Check the response 404 while deleting multiple services {1,2}')
+    @allure.description(f'Проверка ответа [404] при запросе сервиса оплаты с некорректным id {1,2}')
+    def test_services_id_negative_input_non_existent_id_get_2(self):
+        response = delete_service(id_data="1,2")
+        assert_status_code(response=response, expected=404)
+        expected = ExpectedJSON.PAYMENT_SERVICE_NOT_FOUND.value
+        assert_json_equal_json(response=response, json=expected)
