@@ -2,8 +2,9 @@ import allure
 import pytest
 
 from source.api.payments.payments import create_service, delete_service, update_service_partially
-from source.base.validator import (assert_status_code, assert_json_equal_json)
+from source.base.validator import (assert_status_code, assert_json_equal_json, assert_json_by_model)
 from source.enums.expected import ExpectedJSON
+from source.schemas.payments.external_payments_services_schema import External_Payments
 
 
 @allure.epic('Payments')
@@ -77,6 +78,7 @@ class TestPaymentsPostList:
 
         response_2 = update_service_partially(id_data=id_test, json=payload2)
         assert_status_code(response=response_2, expected=200)
+        assert_json_by_model(response=response_2, model=External_Payments)
 
         response_3 = delete_service(id_data=id_test)
         assert_status_code(response=response_3, expected=204)
