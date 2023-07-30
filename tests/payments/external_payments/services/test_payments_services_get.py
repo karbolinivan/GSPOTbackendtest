@@ -2,7 +2,6 @@ import allure
 import pytest
 
 from source.api.payments.payments import get_services_list, create_service, delete_service, get_service
-from source.base.client import Requests
 from source.base.validator import (assert_status_code, assert_json_by_model, assert_json_equal_json)
 from source.enums.expected import ExpectedJSON
 from source.schemas.payments.external_payments_services_schema import External_Payments
@@ -21,6 +20,7 @@ class TestPaymentsGetList:
         response = get_services_list()
         assert_status_code(response=response, expected=200)
         assert_json_by_model(response=response, model=External_Payments)
+        print(response.text)
 
     @allure.title('Get non-existent service by id')
     @allure.description('Проверка ответа [404] при запросе несуществующего сервиса оплаты')

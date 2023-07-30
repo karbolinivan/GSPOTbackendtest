@@ -1,7 +1,7 @@
 from typing import Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr, validator, ValidationError, root_validator
 
-from source.api.payments.payments import get_services_list
+from pydantic import BaseModel, Field, StrictInt, StrictStr, validator, ValidationError
+
 from source.enums.expected import ExpectedJSON
 
 
