@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field, StrictInt, StrictStr, validator, Validati
 from source.enums.expected import ExpectedJSON
 
 
-class External_Payments(BaseModel):
+class Payments_Services(BaseModel):
     id: Optional[StrictInt] = Field(None, title='ID')
     name: StrictStr = Field(..., title='Name', min_length=1, max_length=30)
 
