@@ -57,7 +57,7 @@ class TestPaymentsGetList:
         assert_json_equal_json(response=response, json=expected)
 
     @allure.title(f'Check the response 404 while deleting multiple services {1,2}')
-    @allure.description(f'Проверка ответа [404] при запросе сервиса оплаты с некорректным id {1,2}')
+    @allure.description(f'Проверка ответа [404] при удалении нескольких сервисов оплаты {1,2}')
     def test_external_payments_services_id_negative_remove_multiple_services_delete_2(self):
         response = delete_service(id_data="1,2")
         assert_status_code(response=response, expected=404)
