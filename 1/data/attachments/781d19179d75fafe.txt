@@ -1,5 +1,0 @@
-Deleted service with ID 159. Status code: 204
-Deleted service with ID 160. Status code: 204
-Deleted service with ID 161. Status code: 204
-Deleted service with ID 162. Status code: 204
-Deleted service with ID 163. Status code: 204
