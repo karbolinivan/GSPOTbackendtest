@@ -42,12 +42,13 @@ class TestLanguagesUpdateRegression:
     @allure.title('{id_test_case}-Test languages update with invalid value')
     @allure.description('Проверка ответа [400] при обновлении языка с невалидным значением ')
     @pytest.mark.parametrize("id_test_case, name, link, value", [
-        Cases.get_parametrize(test_case="TG98"), Cases.get_parametrize(test_case="TG99")
+        Cases.get_parametrize(service="Games", test_case="TG98"),
+        Cases.get_parametrize(service="Games", test_case="TG99")
     ])
     def test_languages_update_with_invalid_name(self, id_test_case, name, link, value, create_delete_test_languages):
         allure.dynamic.testcase(name=name, url=link)
-        id_test = create_delete_test_languages.json().get('id')
 
+        id_test = create_delete_test_languages.json().get('id')
         response = update_languages(id_data=id_test, json=json.loads(value))
 
         expected = ExpectedJSON.key_value(key='name', value=ExpectedJSON.FIELD_CANNOT_BE_EMPTY_RUS.value)
