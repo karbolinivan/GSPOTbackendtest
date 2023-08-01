@@ -72,4 +72,4 @@ class TestPaymentsGetList:
         response = get_service(id_data="1,2")
         assert_status_code(response=response, expected=404)
         expected = ExpectedJSON.PAYMENT_SERVICE_NOT_FOUND.value
-        assert_json_equal_json(response=response, json=expected)Ы
+        assert_json_equal_json(response=response, json=expected)
