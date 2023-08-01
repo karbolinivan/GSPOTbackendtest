@@ -1,0 +1,31 @@
+01.08.2023_16:20:42.446623
+REQUEST: POST
+url: https://payments.alpha.g-spot.website/api/v1/external_payments/services/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "name": "\u0645\u062b\u0627\u0644 \u0644\u0644\u0632\u062e\u0631\u0641\u0629"
+}
+
+01.08.2023_16:20:42.890776
+RESPONSE
+status code: 201
+headers: {
+  "Allow": "GET, POST, HEAD, OPTIONS",
+  "Content-Length": "44",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Tue, 01 Aug 2023 16:20:42 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "id": 1100,
+  "name": "مثال للزخرفة"
+}

@@ -1,0 +1,37 @@
+01.08.2023_16:20:19.047390
+REQUEST: GET
+url: https://games.alpha.g-spot.website/api/v1/reference/product_languages/
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: {
+  "limit": null,
+  "offset": null
+}
+json: null
+
+01.08.2023_16:20:19.872912
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, POST, HEAD, OPTIONS",
+  "Content-Length": "83",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Tue, 01 Aug 2023 16:20:19 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: [
+  {
+    "id": 96,
+    "languageName": "support",
+    "interface": true,
+    "subtitles": true,
+    "voice": true
+  }
+]
