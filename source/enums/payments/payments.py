@@ -20,3 +20,16 @@ class Item_Purchases(str, Enum):
 
     def __str__(self) -> str:
         return self.value
+
+
+class Payment_Accounts(str, Enum):
+    BALANCES = f'{BASE_URL}payment_accounts/balances/'
+    CREATE_ACCOUNT = f'{BASE_URL}payment_accounts/create_account/'
+    INCREASE_BALANCE = f'{BASE_URL}payment_accounts/increase_balance/'
+    OWNER = f'{BASE_URL}payment_accounts/owner/'
+    PAYMENT_COMMISSION = f'{BASE_URL}payment_accounts/payment_commission/'
+    PAYOUT = f'{BASE_URL}payment_accounts/payout/'
+    PAYOUT_DATA = f'{BASE_URL}payment_accounts/payout_data/'
+
+    def __str__(self) -> str:
+        return self.value
