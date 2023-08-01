@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from source.api.payments.payments import update_service_partially
+from source.api.payments.payments import update_service_partially, update_service
 from source.base.validator import (assert_status_code, assert_json_equal_json, assert_json_by_model)
 from source.schemas.payments.external_payments.services_schema import Payments_Services
 
@@ -9,7 +9,7 @@ from source.schemas.payments.external_payments.services_schema import Payments_S
 @allure.epic('Payments')
 @allure.feature('External Payments')
 @allure.story('Services')
-@allure.suite('Test patch services')
+@allure.suite('Test put services')
 @pytest.mark.smoke
 class TestPaymentsPostList:
 
@@ -19,14 +19,10 @@ class TestPaymentsPostList:
 
         id_test = create_delete_test_payment_service.json().get('id')
 
-        payload = {
-            "name": ""
-        }
-
-        response = update_service_partially(id_data=id_test, json=payload)
+        responce = update_service(id_data=id_test, json={"name": ""})
         expected = {"name":["This field may not be blank."]}
-        assert_status_code(response=response, expected=400)
-        assert_json_equal_json(response=response, json=expected)
+        assert_status_code(response=responce, expected=400)
+        assert_json_equal_json(response=responce, json=expected)
 
     @allure.title('Check if we can not partially update service with an empty name')
     @allure.description(f"Проверка ответа [400] при частичном обновлении сервиса с пустым именем (пробел)")
@@ -34,14 +30,10 @@ class TestPaymentsPostList:
 
         id_test = create_delete_test_payment_service.json().get('id')
 
-        payload = {
-            "name": " "
-        }
-
-        response = update_service_partially(id_data=id_test, json=payload)
+        responce = update_service(id_data=id_test, json={"name": " "})
         expected = {"name": ["This field may not be blank."]}
-        assert_status_code(response=response, expected=400)
-        assert_json_equal_json(response=response, json=expected)
+        assert_status_code(response=responce, expected=400)
+        assert_json_equal_json(response=responce, json=expected)
 
     @allure.title('Check of partially update service')
     @allure.description(f"Проверка ответа [200] при частичном обновлении сервиса")
@@ -49,10 +41,6 @@ class TestPaymentsPostList:
 
         id_test = create_delete_test_payment_service.json().get('id')
 
-        payload = {
-            "name": "yookassa"
-        }
-
-        response = update_service_partially(id_data=id_test, json=payload)
+        response = update_service_partially(id_data=id_test, json={"name": "yookassa"})
         assert_status_code(response=response, expected=200)
         assert_json_by_model(response=response, model=Payments_Services)

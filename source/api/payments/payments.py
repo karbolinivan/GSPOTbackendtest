@@ -1,5 +1,3 @@
-import json
-
 import allure
 
 from constants import tester_auth
@@ -23,8 +21,21 @@ def delete_service(id_data, auth=None):
     response = Requests.delete(url=url, auth=auth)
     return response
 
+@allure.step('Get service by id')
 def get_service(id_data, auth=None):
     url = f'{External_Payments.SERVICES}{id_data}/'
     response = Requests.get(url=url, auth=auth)
+    return response
+
+@allure.step('Partially update service by id')
+def update_service_partially(id_data: int, json, auth=None):
+    url = f'{External_Payments.SERVICES}{id_data}/'
+    response = Requests.patch(url=url, json=json, auth=auth)
+    return response
+
+@allure.step('Update service by id')
+def update_service(id_data: int, json, auth=None):
+    url = f'{External_Payments.SERVICES}{id_data}/'
+    response = Requests.put(url=url, json=json, auth=auth)
     return response
 
