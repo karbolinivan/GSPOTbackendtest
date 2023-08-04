@@ -2,6 +2,7 @@ import allure
 import pytest
 
 from source.base.generator import Generator
+from source.enums.data import Cases
 from source.schemas.product_languages import ProductLanguages
 from source.api.product_languages import delete_product_languages, create_product_languages
 from source.base.validator import assert_json_by_model, assert_json_key_value, assert_status_code
@@ -14,8 +15,9 @@ from source.base.validator import assert_json_by_model, assert_json_key_value, a
 @pytest.mark.smoke
 @pytest.mark.xfail(reason='Product languages cannot be created')
 class TestProductLanguagesCreate:
-    @allure.title('Test product languages create')
+    @allure.title(f'{Cases.GAMES["TG15"]["id"]}-Test product languages create')
     @allure.description('Проверка успешного ответа [201] при создании языка продукта.')
+    @allure.testcase(name=Cases.GAMES["TG15"]["name"], url=Cases.GAMES["TG15"]["link"])
     def test_product_languages_create(self, delete_created_data):
         payload = Generator.object(model=ProductLanguages, seed=111)
         response = create_product_languages(json=payload)

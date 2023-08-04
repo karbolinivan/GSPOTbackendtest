@@ -36,7 +36,7 @@ def update_product_languages(id_data: int, json, auth=tester_auth):
 
 
 @allure.step('Update the product language partly with id "{id_data}"')
-def update_product_languages_partially(id_data: int, json, auth=tester_auth):
+def update_product_languages_partly(id_data: int, json, auth=tester_auth):
     url = f'{Reference.PRODUCT_LANGUAGES}{id_data}/'
     response = Requests.patch(url=url, json=json, auth=auth)
     return response

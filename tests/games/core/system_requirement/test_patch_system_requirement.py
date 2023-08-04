@@ -3,6 +3,7 @@ import pytest
 
 from source.api.games.system_requirement import update_system_requirement_partly
 from source.base.generator import Generator
+from source.enums.data import Cases
 from source.schemas.games.system_requirement import SystemRequirement
 from source.base.validator import (assert_status_code, assert_json_by_model, assert_json_key_value)
 
@@ -14,8 +15,9 @@ from source.base.validator import (assert_status_code, assert_json_by_model, ass
 @pytest.mark.smoke
 @pytest.mark.xfail(reason='System requirements cannot be created')
 class TestSystemRequirementPartialUpdate:
-    @allure.title('Test system requirement partial update')
+    @allure.title(f'{Cases.GAMES["TG13"]["id"]}-Test system requirement partial update')
     @allure.description('Проверка успешного ответа [200] при частичном обновлении системных требований')
+    @allure.testcase(name=Cases.GAMES["TG13"]["name"], url=Cases.GAMES["TG13"]["link"])
     def test_system_requirement_partial_update(self, create_delete_test_system_requirement):
         id_test = create_delete_test_system_requirement.json().get('id')
         payload = Generator.object(model=SystemRequirement, include='deviceGraphics')

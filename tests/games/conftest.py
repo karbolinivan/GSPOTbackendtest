@@ -18,7 +18,7 @@ from source.schemas.subgenre import Subgenre
 
 @pytest.fixture()
 def db_games_connection():
-    db_games = Database(path_settings=Path.GAMES).connect()
+    db_games = Database(path_settings=Path.GAMES_DB).connect()
     yield db_games
     db_games.close()
 

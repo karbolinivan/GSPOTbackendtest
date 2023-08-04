@@ -2,6 +2,7 @@ import allure
 import pytest
 
 from source.base.generator import Generator
+from source.enums.data import Cases
 from source.schemas.product_languages import ProductLanguages
 from source.api.product_languages import update_product_languages
 from source.base.validator import (assert_json_by_model, assert_status_code,
@@ -15,9 +16,11 @@ from source.base.validator import (assert_json_by_model, assert_status_code,
 @pytest.mark.smoke
 @pytest.mark.xfail(reason='Product languages cannot be created')
 class TestProductLanguagesUpdate:
-    @allure.title('Test product languages update')
+    @allure.title(f'{Cases.GAMES["TG20"]["id"]}-Test product languages update')
     @allure.description('Проверка успешного ответа [200] при обновлении языка продукта')
+    @allure.testcase(name=Cases.GAMES["TG20"]["name"], url=Cases.GAMES["TG20"]["link"])
     def test_languages_update(self, create_delete_test_product_languages):
+
         id_test = create_delete_test_product_languages.json().get('id')
 
         payload = Generator.object(model=ProductLanguages, seed=2)
@@ -28,4 +31,3 @@ class TestProductLanguagesUpdate:
         assert_json_by_model(response=response, model=ProductLanguages)
         assert_json_equal_json(response=response, json=payload)
         assert_json_key_value(response=response, json=payload, key='name')
-
