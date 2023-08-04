@@ -1,0 +1,23 @@
+04.08.2023_12:48:07.626038
+REQUEST: DELETE
+url: None
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: null
+json: null
+
+04.08.2023_12:48:08.573026
+RESPONSE
+status code: 204
+headers: {
+  "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Fri, 04 Aug 2023 12:48:08 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
