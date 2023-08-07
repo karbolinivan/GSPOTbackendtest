@@ -1,0 +1,28 @@
+07.08.2023_10:02:21.149550
+REQUEST: GET
+url: https://games.alpha.g-spot.website/api/v1/reference/languages/-1
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: null
+json: null
+
+07.08.2023_10:02:22.151743
+RESPONSE
+status code: 404
+headers: {
+  "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+  "Content-Length": "50",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 07 Aug 2023 10:02:22 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "detail": "Страница не найдена."
+}

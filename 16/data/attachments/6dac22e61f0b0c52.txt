@@ -1,0 +1,32 @@
+07.08.2023_10:02:35.780214
+REQUEST: POST
+url: https://games.alpha.g-spot.website/api/v1/reference/languages/
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: null
+json: {
+  "name": ""
+}
+
+07.08.2023_10:02:36.751246
+RESPONSE
+status code: 400
+headers: {
+  "Allow": "GET, POST, HEAD, OPTIONS",
+  "Content-Length": "67",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 07 Aug 2023 10:02:36 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "name": [
+    "Это поле не может быть пустым."
+  ]
+}

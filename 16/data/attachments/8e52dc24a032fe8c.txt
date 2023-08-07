@@ -1,0 +1,31 @@
+07.08.2023_10:03:30.662945
+REQUEST: GET
+url: https://payments.alpha.g-spot.website/api/v1/external_payments/services/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: null
+
+07.08.2023_10:03:31.202482
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, POST, HEAD, OPTIONS",
+  "Content-Length": "29",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 07 Aug 2023 10:03:31 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: [
+  {
+    "id": 1141,
+    "name": "string"
+  }
+]
