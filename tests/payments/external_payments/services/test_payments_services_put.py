@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from source.api.payments.payments import update_service_partially, update_service
+from source.api.payments.external_payments_services import update_service_partially, update_service
 from source.base.validator import (assert_status_code, assert_json_equal_json, assert_json_by_model)
 from source.schemas.payments.external_payments.services_schema import Payments_Services
 

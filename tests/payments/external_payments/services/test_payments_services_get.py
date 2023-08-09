@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from source.api.payments.payments import get_services_list, delete_service, get_service
+from source.api.payments.external_payments_services import get_services_list, delete_service, get_service
 from source.base.validator import (assert_status_code, assert_json_by_model, assert_json_equal_json)
 from source.enums.expected import ExpectedJSON
 from source.schemas.payments.external_payments.services_schema import Payments_Services
