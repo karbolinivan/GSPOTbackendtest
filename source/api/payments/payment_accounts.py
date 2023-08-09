@@ -32,7 +32,7 @@ def create_account(json, auth=None):
 
 
 @allure.step('Create account')
-def create_balance(json, auth=None):
+def post_balance(json, auth=None):
     response = Requests.post(url=Payment_Accounts.BALANCES, auth=auth, json=json)
     return response
 
