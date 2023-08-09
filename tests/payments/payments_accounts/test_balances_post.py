@@ -107,7 +107,7 @@ class TestBalancesPostList:
 
     @allure.title('Check balance data of user with empty uuid')
     @allure.description(f"Проверка ответа [400] при получении информации о балансе у юзера с пустым {uuid}")
-    def test_balances_negative_empty_uuid_field(self):
+    def test_balances_negative_empty_uuid_field_post(self):
         payload = {
             "uuid_list": []
         }
