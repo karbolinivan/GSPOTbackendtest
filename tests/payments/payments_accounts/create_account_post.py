@@ -25,10 +25,6 @@ class TestCreateAccountPost:
 
         uuid_test = str(uuid.uuid4()) # random uuid
         response = create_account(json={"user_uuid":uuid_test})
-        print("\n")
-        print(response.status_code)
-        print(response.text)
+
         assert_status_code(response=response, expected=201)
         assert_json_by_model(response=response, model=Account)
-
-        # delete is not required according to the test case
