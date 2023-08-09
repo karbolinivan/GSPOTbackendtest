@@ -3,13 +3,9 @@ import uuid
 import allure
 import pytest
 
-from source.api.payments.external_payments_services import create_service
-from source.api.payments.payment_accounts import increase_balance, delete_balance, get_balance, create_account, \
-    delete_payout_data
-from source.base.validator import (assert_status_code, assert_json_equal_json, assert_json_by_model)
-from source.enums.expected import ExpectedJSON
+from source.api.payments.payment_accounts import create_account
+from source.base.validator import (assert_status_code, assert_json_by_model)
 from source.schemas.payments.payment_accounts.account import Account
-from source.schemas.payments.payment_accounts.payment_accounts_schema import Payments_Accounts
 
 
 @allure.epic('Payments')
