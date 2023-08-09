@@ -2,8 +2,9 @@ import allure
 import pytest
 
 from source.base.generator import Generator
+from source.enums.data import Cases
 from source.schemas.product_languages import ProductLanguages
-from source.api.product_languages import update_product_languages_partially
+from source.api.product_languages import update_product_languages_partly
 from source.base.validator import (assert_json_by_model, assert_status_code,
                                    assert_json_key_value, assert_json_equal_json)
 
@@ -15,13 +16,14 @@ from source.base.validator import (assert_json_by_model, assert_status_code,
 @pytest.mark.smoke
 @pytest.mark.xfail(reason='Product languages cannot be created')
 class TestProductLanguagesPartialUpdate:
-    @allure.title('Test product languages partial update')
+    @allure.title(f'{Cases.GAMES["TG18"]["id"]}-Test product languages partial update')
     @allure.description('Проверка успешного ответа [200] при частичном обновлении языка продукта')
+    @allure.testcase(name=Cases.GAMES["TG18"]["name"], url=Cases.GAMES["TG18"]["link"])
     def test_product_languages_partial_update(self, create_delete_test_product_languages):
         id_test = create_delete_test_product_languages.json().get('id')
 
         payload = Generator.object(model=ProductLanguages, seed=2)
-        response = update_product_languages_partially(id_data=id_test, json=payload)
+        response = update_product_languages_partly(id_data=id_test, json=payload)
         payload['id'] = id_test
 
         assert_status_code(response=response, expected=200)

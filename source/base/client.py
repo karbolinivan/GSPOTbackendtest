@@ -3,11 +3,12 @@ import requests
 
 from requests import Response
 from typing import Dict, Optional, Any, Tuple
+from source.base.logger import log
 
 
 class Requests:
     @staticmethod
-    @allure.step("GET request to {url}")
+    @allure.step("GET request to:\n{url}")
     def get(
             url: str,
             params: Optional[Dict[str, Any]] = None,
@@ -15,16 +16,13 @@ class Requests:
             cookies: Optional[Dict[str, str]] = None,
             auth: Optional[Tuple[str, str]] = None
     ) -> Response:
-        return requests.get(
-            url=url,
-            params=params,
-            headers=headers,
-            cookies=cookies,
-            auth=auth,
-        )
+        log.save_request(method="GET", url=url, params=params, headers=headers, cookies=cookies, auth=auth)
+        response = requests.get(url=url, params=params, headers=headers, cookies=cookies, auth=auth)
+        log.save_response(response=response)
+        return response
 
     @staticmethod
-    @allure.step("POST request to {url}")
+    @allure.step("POST request to:\n{url}")
     def post(
             url: str,
             data: str = None,
@@ -34,18 +32,15 @@ class Requests:
             cookies: Optional[Dict[str, str]] = None,
             auth: Optional[Tuple[str, str]] = None
     ) -> Response:
-        return requests.post(
-            url=url,
-            data=data,
-            json=json,
-            params=params,
-            headers=headers,
-            cookies=cookies,
-            auth=auth,
-        )
+        log.save_request(method='POST', url=url, data=data, json=json, params=params, headers=headers, cookies=cookies,
+                         auth=auth)
+        response = requests.post(url=url, data=data, json=json, params=params, headers=headers, cookies=cookies,
+                                 auth=auth)
+        log.save_response(response=response)
+        return response
 
     @staticmethod
-    @allure.step("PATCH request to {url}")
+    @allure.step("PATCH request to:\n{url}")
     def patch(
             url: str,
             data: str = None,
@@ -55,18 +50,15 @@ class Requests:
             cookies: Optional[Dict[str, str]] = None,
             auth: Optional[Tuple[str, str]] = None
     ) -> Response:
-        return requests.patch(
-            url=url,
-            data=data,
-            json=json,
-            params=params,
-            headers=headers,
-            cookies=cookies,
-            auth=auth,
-        )
+        log.save_request(method='PATCH', url=url, data=data, json=json, params=params, headers=headers, cookies=cookies,
+                         auth=auth)
+        response = requests.patch(url=url, data=data, json=json, params=params, headers=headers, cookies=cookies,
+                                  auth=auth)
+        log.save_response(response=response)
+        return response
 
     @staticmethod
-    @allure.step("PUT request to {url}")
+    @allure.step("PUT request to:\n{url}")
     def put(
             url: str,
             data: str = None,
@@ -76,18 +68,15 @@ class Requests:
             cookies: Optional[Dict[str, str]] = None,
             auth: Optional[Tuple[str, str]] = None
     ) -> Response:
-        return requests.put(
-            url=url,
-            data=data,
-            json=json,
-            params=params,
-            headers=headers,
-            cookies=cookies,
-            auth=auth,
-        )
+        log.save_request(method='PUT', url=url, data=data, json=json, params=params, headers=headers, cookies=cookies,
+                         auth=auth)
+        response = requests.put(url=url, data=data, json=json, params=params, headers=headers, cookies=cookies,
+                                auth=auth)
+        log.save_response(response=response)
+        return response
 
     @staticmethod
-    @allure.step("DELETE request to {url}")
+    @allure.step("DELETE request to:\n{url}")
     def delete(
             url: str,
             data: str = None,
@@ -97,12 +86,9 @@ class Requests:
             cookies: Optional[Dict[str, str]] = None,
             auth: Optional[Tuple[str, str]] = None
     ) -> Response:
-        return requests.delete(
-            url=url,
-            data=data,
-            json=json,
-            params=params,
-            headers=headers,
-            cookies=cookies,
-            auth=auth,
-        )
+        log.save_request(method='DELETE', data=data, json=json, params=params, headers=headers, cookies=cookies,
+                         auth=auth)
+        response = requests.delete(url=url, data=data, json=json, params=params, headers=headers, cookies=cookies,
+                                   auth=auth)
+        log.save_response(response=response)
+        return response
