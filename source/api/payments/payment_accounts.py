@@ -31,6 +31,12 @@ def create_account(json, auth=None):
     return response
 
 
+@allure.step('Create account')
+def create_balance(json, auth=None):
+    response = Requests.post(url=Payment_Accounts.BALANCES, auth=auth, json=json)
+    return response
+
+
 @allure.step('Delete payout data')
 def delete_payout_data(uuid, auth=None):
     url = f"{Payment_Accounts.PAYOUT_DATA}{uuid}/"
