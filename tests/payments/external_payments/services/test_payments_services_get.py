@@ -10,9 +10,9 @@ from source.schemas.payments.external_payments.services_schema import Payments_S
 @allure.epic('Payments')
 @allure.feature('External Payments')
 @allure.story('Services')
-@allure.suite('Test get services')
+@allure.suite('Test get payment services')
 @pytest.mark.smoke
-class TestPaymentsGetList:
+class TestPaymentsServicesGet:
 
     @allure.title('Test external payments services list')
     @allure.description('Проверка успешного ответа [200] при запросе списка сервисов оплаты')
