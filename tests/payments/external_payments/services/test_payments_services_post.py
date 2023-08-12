@@ -9,9 +9,9 @@ from source.enums.expected import ExpectedJSON
 @allure.epic('Payments')
 @allure.feature('External Payments')
 @allure.story('Services')
-@allure.suite('Test post services')
+@allure.suite('Test post payment services')
 @pytest.mark.smoke
-class TestPaymentsPostList:
+class TestPaymentsServicesPostList:
 
     @allure.title('Check if we can not create the service with an existing name')
     @allure.description(f"Проверка ответа [400] при создании сервиса оплаты с уже существующим именем")

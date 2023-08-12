@@ -13,8 +13,8 @@ def get_balance(user_uuid, auth=None):
 
 
 @allure.step('Increase balance')
-def increase_balance(auth=None):
-    response = Requests.post(url=Payment_Accounts.INCREASE_BALANCE, auth=auth)
+def increase_balance(json, auth=None):
+    response = Requests.post(url=Payment_Accounts.INCREASE_BALANCE, auth=auth, json=json)
     return response
 
 
@@ -32,7 +32,7 @@ def create_account(json, auth=None):
 
 
 @allure.step('Create account')
-def create_balance(json, auth=None):
+def post_balance(json, auth=None):
     response = Requests.post(url=Payment_Accounts.BALANCES, auth=auth, json=json)
     return response
 

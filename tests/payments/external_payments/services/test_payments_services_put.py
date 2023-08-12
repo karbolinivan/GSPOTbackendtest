@@ -9,9 +9,9 @@ from source.schemas.payments.external_payments.services_schema import Payments_S
 @allure.epic('Payments')
 @allure.feature('External Payments')
 @allure.story('Services')
-@allure.suite('Test put services')
+@allure.suite('Test put payment services')
 @pytest.mark.smoke
-class TestPaymentsPostList:
+class TestPaymentsServicesPutList:
 
     @allure.title('Check if we can not partially update service with an empty name')
     @allure.description(f"Проверка ответа [400] при частичном обновлении сервиса с пустым именем")

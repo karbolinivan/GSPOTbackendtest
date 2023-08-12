@@ -9,9 +9,9 @@ from source.enums.expected import ExpectedJSON
 @allure.epic('Payments')
 @allure.feature('External Payments')
 @allure.story('Services')
-@allure.suite('Test delete services')
+@allure.suite('Test delete payment services')
 @pytest.mark.smoke
-class TestPaymentsGetList:
+class TestPaymentsServicesDelete:
 
     @allure.title('Test of deleting non-existent service by id')
     @allure.description('Проверка ответа [404] при удалении по id несуществующего сервиса оплаты')
