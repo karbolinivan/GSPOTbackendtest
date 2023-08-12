@@ -34,14 +34,14 @@ class Assertion:
 
     @allure.step('Assertion of a json equal json')
     def assert_json_equal_json(self, json):
-        assert self.response.json() == json, f'{GlobalError.INVALID_JSON}.\n'\
+        assert self.response.json() == json, f'{GlobalError.INVALID_JSON}.\n' \
                                              f'Response: {self.response.json()}'
         return self
 
     @allure.step('Assertion of a status code')
     def assert_status_code(self, expected: int):
         assert self.status_code == expected, f'{GlobalError.WRONG_STATUS_CODE}.\n' \
-                                             f'Expected: {expected}\n'\
+                                             f'Expected: {expected}\n' \
                                              f'Actual: {self.status_code}\n'
         return self
 
@@ -60,3 +60,40 @@ def assert_json_equal_json(response, json):
 
 def assert_status_code(response, expected):
     return Assertion(response=response).assert_status_code(expected=expected)
+
+
+class Assertions:
+    @staticmethod
+    @allure.step('Assertion json by the model')
+    def json_by_model(actual, model):
+        try:
+            if isinstance(actual, list):
+                for item in actual:
+                    model(**item)
+            else:
+                model(**actual)
+        except ValidationError as e:
+            raise AttributeError(f"Could not map received object to pydantic model:\n{e.json()}")
+
+    @staticmethod
+    @allure.step('Assertion of a json key value')
+    def json_key_value(actual, expected, key):
+        assert actual.get(key) == expected.get(key), f'{GlobalError.INVALID_KEY_VALUE}.\n' \
+                                                     f'Actual: {actual.get(key)}\n' \
+                                                     f'Expected: {expected.get(key)}' \
+
+    @staticmethod
+    def json_equal_json(actual, expected):
+        assert actual == expected, f'{GlobalError.INVALID_JSON}.\n' \
+                                   f'Actual: {actual}\n' \
+                                   f'Expected: {expected}'
+
+    @staticmethod
+    @allure.step('Assertion of a status code')
+    def status_code(actual, expected):
+        assert actual == expected, f'{GlobalError.WRONG_STATUS_CODE}.\n' \
+                                   f'Actual: {actual}\n' \
+                                   f'Expected: {expected}'
+
+
+assertions = Assertions()

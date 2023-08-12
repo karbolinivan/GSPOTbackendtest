@@ -2,7 +2,7 @@ FROM python:3.11-buster
 
 WORKDIR /usr/project
 
-VOLUME /usr/project/allure_results
+VOLUME /usr/project/allure-results
 
 COPY requirements.txt .
 
