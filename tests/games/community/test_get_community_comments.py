@@ -1,9 +1,10 @@
 import allure
 import pytest
 
-from source.api.games.community import get_community_comments
-from source.base.validator import assert_status_code
+from source.api.games.community import community
+from source.base.validator import assertions
 from source.enums.data import Cases
+from http import HTTPStatus
 
 
 @allure.epic('Games')
@@ -17,5 +18,5 @@ class TestCommunityComments:
     @allure.testcase(name=Cases.GAMES["TG1"]["name"], url=Cases.GAMES["TG1"]['link'])
     def test_community_comments_read(self):
         id_test = 1
-        response = get_community_comments(id_data=id_test)
-        assert_status_code(response=response, expected=200)
+        response = community.comments_id(id_data=id_test)
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.OK)

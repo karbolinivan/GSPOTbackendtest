@@ -1,10 +1,10 @@
 import allure
 import pytest
 
+from source.api.games.filters import filters
+from source.base.validator import assertions
 from source.enums.data import Cases
-from source.schemas.genre_games import GenreGames
-from source.api.filters_genres import get_filters_genres_list
-from source.base.validator import assert_status_code, assert_json_by_model
+from source.schemas.games.genre_games import GenreGames
 
 
 @allure.epic('Games')
@@ -18,6 +18,6 @@ class TestFiltersGenres:
     @allure.description('Проверка успешного ответа [200] при запросе фильтра по жанру игр')
     @allure.testcase(name=Cases.GAMES["TG102"]["name"], url=Cases.GAMES["TG102"]["link"])
     def test_filters_genres_list(self):
-        response = get_filters_genres_list()
-        assert_status_code(response=response, expected=200)
-        assert_json_by_model(response=response, model=GenreGames)
+        response = filters.genres_list()
+        assertions.status_code(actual=response.status_code, expected=200)
+        assertions.json_by_model(actual=response.json(), model=GenreGames)

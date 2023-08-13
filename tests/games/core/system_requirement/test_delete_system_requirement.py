@@ -1,8 +1,10 @@
+from http import HTTPStatus
+
 import allure
 import pytest
 
-from source.api.games.system_requirement import delete_system_requirement
-from source.base.validator import assert_status_code
+from source.api.games.system_requirement import system_requirements
+from source.base.validator import assertions
 from source.enums.data import Cases
 
 
@@ -18,5 +20,5 @@ class TestSystemRequirementDelete:
     @allure.testcase(name=Cases.GAMES["TG11"]["name"], url=Cases.GAMES["TG11"]["link"])
     def test_system_requirement_delete(self, create_test_system_requirement):
         id_test = create_test_system_requirement.json().get('id')
-        response = delete_system_requirement(id_data=id_test)
-        assert_status_code(response=response, expected=204)
+        response = system_requirements.delete(id_data=id_test)
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.NO_CONTENT)

@@ -1,8 +1,10 @@
+from http import HTTPStatus
+
 import allure
 import pytest
 
-from source.api.languages import delete_languages
-from source.base.validator import assert_status_code, assert_json_equal_json
+from source.api.games.languages import languages
+from source.base.validator import assertions
 from source.enums.data import Cases
 from source.enums.expected import ExpectedJSON
 
@@ -18,8 +20,8 @@ class TestLanguagesDelete:
     @allure.testcase(name=Cases.GAMES["TG92"]["name"], url=Cases.GAMES["TG92"]["link"])
     def test_languages_delete(self, create_test_languages):
         id_test = create_test_languages.json().get('id')
-        response = delete_languages(id_data=id_test)
-        assert_status_code(response=response, expected=204)
+        response = languages.delete(id_data=id_test)
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.NO_CONTENT)
 
 
 @allure.epic('Games')
@@ -32,6 +34,6 @@ class TestLanguagesDeleteRegression:
     @allure.description('Проверка ответа [404] при удалении языка c несуществующим ID')
     @allure.testcase(name=Cases.GAMES["TG91"]["name"], url=Cases.GAMES["TG91"]["link"])
     def test_language_delete_with_non_existent_id(self):
-        response = delete_languages(id_data=-1)
-        assert_status_code(response=response, expected=404)
-        assert_json_equal_json(response=response, json=ExpectedJSON.NOT_FOUND.value)
+        response = languages.delete(id_data=-1)
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.NOT_FOUND)
+        assertions.json_equal_json(actual=response.json(), expected=ExpectedJSON.NOT_FOUND.value)

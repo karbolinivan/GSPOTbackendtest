@@ -1,6 +1,6 @@
 from typing import Optional, List
 from pydantic import BaseModel, Field, StrictInt, StrictStr
-from source.schemas.subgenre import Subgenre
+from source.schemas.games.subgenre import Subgenre
 
 
 class GenreGames(BaseModel):

@@ -1,10 +1,10 @@
 import allure
 import pytest
 
-from source.api.filters_platforms import get_filters_platforms_list
-from source.base.validator import assert_status_code, assert_json_by_model
+from source.api.games.filters import filters
+from source.base.validator import assertions
 from source.enums.data import Cases
-from source.schemas.operating_system import OperatingSystem
+from source.schemas.games.operating_system import OperatingSystem
 
 
 @allure.epic('Games')
@@ -18,6 +18,6 @@ class TestFiltersPlatforms:
     @allure.description('Проверка успешного ответа [200] при запросе фильтра по операционной системе')
     @allure.testcase(name=Cases.GAMES["TG103"]["name"], url=Cases.GAMES["TG103"]["link"])
     def test_filters_platforms_list(self):
-        response = get_filters_platforms_list()
-        assert_status_code(response=response, expected=200)
-        assert_json_by_model(response=response, model=OperatingSystem)
+        response = filters.platforms_list()
+        assertions.status_code(actual=response.status_code, expected=200)
+        assertions.json_by_model(actual=response.json(), model=OperatingSystem)

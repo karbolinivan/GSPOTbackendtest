@@ -1,8 +1,10 @@
+from http import HTTPStatus
+
 import allure
 import pytest
 
-from source.api.games.community import get_community_review
-from source.base.validator import assert_status_code
+from source.api.games.community import community
+from source.base.validator import assertions
 from source.enums.data import Cases
 
 
@@ -17,5 +19,5 @@ class TestCommunityReview:
     @allure.testcase(name=Cases.GAMES["TG2"]["name"], url=Cases.GAMES["TG2"]["link"])
     def test_community_review_read(self):
         id_test = '6f98f5fe-8b36-4bc8-874e-0feeb910747a'
-        response = get_community_review(id_data=id_test)
-        assert_status_code(response=response, expected=200)
+        response = community.review_id(id_data=id_test)
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.OK)

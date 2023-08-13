@@ -5,8 +5,8 @@ from decimal import Decimal
 from uuid import UUID
 from pydantic import BaseModel, Field, StrictStr, StrictInt, StrictBool, AnyUrl
 from source.schemas.games.system_requirement import SystemRequirement, ShortSystemReqSerializers
-from source.schemas.genre_games import GenreGames
-from source.schemas.product_languages import ProductLanguages
+from source.schemas.games.genre_games import GenreGames
+from source.schemas.games.product_languages import ProductLanguages
 
 
 class GamesList(BaseModel):

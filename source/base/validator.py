@@ -80,7 +80,7 @@ class Assertions:
     def json_key_value(actual, expected, key):
         assert actual.get(key) == expected.get(key), f'{GlobalError.INVALID_KEY_VALUE}.\n' \
                                                      f'Actual: {actual.get(key)}\n' \
-                                                     f'Expected: {expected.get(key)}' \
+                                                     f'Expected: {expected.get(key)}'
 
     @staticmethod
     def json_equal_json(actual, expected):

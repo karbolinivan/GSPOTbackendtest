@@ -1,10 +1,12 @@
+from http import HTTPStatus
+
 import allure
 import pytest
 
+from source.api.games.subgenre import subgenres
 from source.base.generator import Generator
-from source.schemas.subgenre import Subgenre
-from source.api.subgenre import delete_subgenre, create_subgenre
-from source.base.validator import assert_json_by_model, assert_json_key_value, assert_status_code
+from source.base.validator import assertions
+from source.schemas.games.subgenre import Subgenre
 
 
 @allure.epic('Games')
@@ -14,16 +16,15 @@ from source.base.validator import assert_json_by_model, assert_json_key_value, a
 @pytest.mark.smoke
 @pytest.mark.xfail(reason='Subgenre cannot be created')
 class TestGenreCreate:
-
     @allure.title('Test subgenre create')
     @allure.description('Проверка успешного ответа [201] при создании поджанра')
     def test_subgenre_create(self, delete_created_data):
         payload = Generator.object(model=Subgenre)
-        response = create_subgenre(json=payload)
+        response = subgenres.create(json=payload)
 
-        assert_status_code(response=response, expected=201)
-        assert_json_by_model(response=response, model=Subgenre)
-        assert_json_key_value(response=response, json=payload, key='name')
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.OK)
+        assertions.json_by_model(actual=response.json(), model=Subgenre)
+        assertions.json_key_value(actual=response.json(), expected=payload, key='name')
 
         id_data = response.json().get('id')
-        delete_created_data(api=delete_subgenre, id_data=id_data)
+        delete_created_data(api=subgenres.delete, id_data=id_data)

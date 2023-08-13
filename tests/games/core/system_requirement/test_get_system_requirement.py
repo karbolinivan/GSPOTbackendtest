@@ -1,8 +1,10 @@
+from http import HTTPStatus
+
 import allure
 import pytest
 
-from source.api.games.system_requirement import get_system_requirement, get_system_requirement_list
-from source.base.validator import assert_status_code, assert_json_by_model
+from source.api.games.system_requirement import system_requirements
+from source.base.validator import assertions
 from source.enums.data import Cases
 from source.schemas.games.system_requirement import SystemRequirement
 
@@ -17,9 +19,9 @@ class TestSystemRequirement:
     @allure.description('Проверка успешного ответа [200] при запросе списка системных требований.')
     @allure.testcase(name=Cases.GAMES["TG9"]["name"], url=Cases.GAMES["TG9"]["link"])
     def test_system_requirement_list(self):
-        response = get_system_requirement_list()
-        assert_status_code(response=response, expected=200)
-        assert_json_by_model(response=response, model=SystemRequirement)
+        response = system_requirements.get_list()
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.OK)
+        assertions.json_by_model(actual=response.json(), model=SystemRequirement)
 
     @allure.title(f'{Cases.GAMES["TG12"]["id"]}-Test system requirement read')
     @allure.title('Test system requirement read')
@@ -28,6 +30,6 @@ class TestSystemRequirement:
     @pytest.mark.xfail(reason='System requirements cannot be created')
     def test_system_requirement_read(self, create_delete_test_system_requirement):
         id_test = create_delete_test_system_requirement.json().get('id')
-        response = get_system_requirement(id_data=id_test)
-        assert_status_code(response=response, expected=200)
-        assert_json_by_model(response=response, model=SystemRequirement)
+        response = system_requirements.get_id(id_data=id_test)
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.OK)
+        assertions.json_by_model(actual=response.json(), model=SystemRequirement)
