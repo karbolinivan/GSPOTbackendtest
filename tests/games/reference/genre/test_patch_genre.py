@@ -1,11 +1,12 @@
+from http import HTTPStatus
+
 import allure
 import pytest
 
-from source.api.genre import update_genre_partly
+from source.api.games.genre import genres
 from source.base.generator import Generator
-from source.schemas.genre_schema import Genre
-from source.base.validator import (assert_status_code, assert_json_equal_json,
-                                   assert_json_by_model, assert_json_key_value)
+from source.schemas.games.genre_schema import Genre
+from source.base.validator import assertions
 
 
 @allure.epic('Games')
@@ -21,10 +22,10 @@ class TestGenrePartialUpdate:
         id_test = create_delete_test_genre.json().get('id')
 
         payload = Generator.object(model=Genre)
-        response = update_genre_partly(id_data=id_test, json=payload)
+        response = genres.update_partly(id_data=id_test, json=payload)
         payload['id'] = id_test
 
-        assert_status_code(response=response, expected=200)
-        assert_json_by_model(response=response, model=Genre)
-        assert_json_equal_json(response=response, json=payload)
-        assert_json_key_value(response=response, json=payload, key='name')
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.OK)
+        assertions.json_by_model(actual=response.json(), model=Genre)
+        assertions.json_equal_json(actual=response.json(), expected=payload)
+        assertions.json_key_value(actual=response.json(), expected=payload, key='name')

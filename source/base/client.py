@@ -92,3 +92,6 @@ class Requests:
                                    auth=auth)
         log.save_response(response=response)
         return response
+
+
+client = Requests()

@@ -1,12 +1,13 @@
+from http import HTTPStatus
+
 import allure
 import pytest
 
+from source.api.games.product_languages import product_languages
 from source.base.generator import Generator
+from source.base.validator import assertions
 from source.enums.data import Cases
-from source.schemas.product_languages import ProductLanguages
-from source.api.product_languages import update_product_languages_partly
-from source.base.validator import (assert_json_by_model, assert_status_code,
-                                   assert_json_key_value, assert_json_equal_json)
+from source.schemas.games.product_languages import ProductLanguages
 
 
 @allure.epic('Games')
@@ -23,10 +24,10 @@ class TestProductLanguagesPartialUpdate:
         id_test = create_delete_test_product_languages.json().get('id')
 
         payload = Generator.object(model=ProductLanguages, seed=2)
-        response = update_product_languages_partly(id_data=id_test, json=payload)
+        response = product_languages.update_partly(id_data=id_test, json=payload)
         payload['id'] = id_test
 
-        assert_status_code(response=response, expected=200)
-        assert_json_by_model(response=response, model=ProductLanguages)
-        assert_json_equal_json(response=response, json=payload)
-        assert_json_key_value(response=response, json=payload, key='name')
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.OK)
+        assertions.json_by_model(actual=response.json(), model=ProductLanguages)
+        assertions.json_equal_json(actual=response.json(), expected=payload)
+        assertions.json_key_value(actual=response.json(), expected=payload, key='name')

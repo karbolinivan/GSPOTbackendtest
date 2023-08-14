@@ -1,8 +1,10 @@
+from http import HTTPStatus
+
 import allure
 import pytest
 
-from source.api.genre import delete_genre
-from source.base.validator import assert_status_code
+from source.api.games.genre import genres
+from source.base.validator import assertions
 from source.enums.data import Cases
 
 
@@ -17,5 +19,5 @@ class TestGenreDelete:
     @allure.testcase(name=Cases.GAMES["TG26"]["name"], url=Cases.GAMES["TG26"]["link"])
     def test_genre_delete(self, create_test_genre):
         id_test = create_test_genre.json().get('id')
-        response = delete_genre(id_data=id_test)
-        assert_status_code(response=response, expected=204)
+        response = genres.delete(id_data=id_test)
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.NO_CONTENT)

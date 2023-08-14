@@ -1,9 +1,10 @@
+from http import HTTPStatus
+
 import allure
 import pytest
 
-
-from source.api.subgenre import delete_subgenre
-from source.base.validator import assert_status_code
+from source.api.games.subgenre import subgenres
+from source.base.validator import assertions
 
 
 @allure.epic('Games')
@@ -17,5 +18,5 @@ class TestSubgenreDelete:
     @allure.description('Проверка успешного ответа [204] при удалении поджанра')
     def test_subgenre_delete(self, create_test_subgenre):
         id_test = create_test_subgenre.json().get('id')
-        response = delete_subgenre(id_data=id_test)
-        assert_status_code(response=response, expected=204)
+        response = subgenres.delete(id_data=id_test)
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.NO_CONTENT)

@@ -1,11 +1,13 @@
+from http import HTTPStatus
+
 import allure
 import pytest
 
-from source.api.games.system_requirement import create_system_requirement, delete_system_requirement
+from source.api.games.system_requirement import system_requirements
 from source.base.generator import Generator
 from source.enums.data import Cases
 from source.schemas.games.system_requirement import SystemRequirement
-from source.base.validator import assert_json_by_model, assert_status_code, assert_json_equal_json
+from source.base.validator import assertions
 
 
 @allure.epic('Games')
@@ -18,14 +20,15 @@ class TestSystemRequirementCreate:
     @allure.title(f'{Cases.GAMES["TG10"]["id"]}-Test system requirement create')
     @allure.description('Проверка успешного ответа [201] при создании системных требований')
     @allure.testcase(name=Cases.GAMES["TG10"]["name"], url=Cases.GAMES["TG10"]["link"])
-    def test_system_requirement_create(self, delete_created_data):
+    def test_system_requirement_create(self):
         payload = Generator.object(model=SystemRequirement, seed=10)
-        response = create_system_requirement(json=payload)
+        response = system_requirements.create(json=payload)
 
         payload['id'] = response.json().get('id')
-        assert_status_code(response=response, expected=201)
-        assert_json_by_model(response=response, model=SystemRequirement)
-        assert_json_equal_json(response=response, json=payload)
+
+        assertions.status_code(actual=response.status_code, expected=HTTPStatus.CREATED)
+        assertions.json_by_model(actual=response.json(), model=SystemRequirement)
+        assertions.json_equal_json(actual=response.json(), expected=payload)
 
         id_data = response.json().get('id')
-        delete_system_requirement(id_data=id_data)
+        system_requirements.delete(id_data=id_data)
