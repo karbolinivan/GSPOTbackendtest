@@ -3,7 +3,8 @@ import uuid
 import allure
 import pytest
 
-from source.api.payments.payment_accounts import post_balance, create_account
+from source.api.payments.payment_accounts.balances import post_balance
+from source.api.payments.payment_accounts.create_account import create_account
 from source.base.validator import (assert_json_by_model, assert_status_code)
 from source.schemas.payments.payment_accounts.account import Account
 from source.schemas.payments.payment_accounts.payment_accounts_schema import Payments_Accounts
