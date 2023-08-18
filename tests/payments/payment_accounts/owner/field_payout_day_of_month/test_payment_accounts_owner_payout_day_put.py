@@ -1,22 +1,23 @@
 import allure
 import pytest
+import datetime
 
 from source.api.payments.payment_accounts.owner import update_owner
 from source.base.validator import assert_status_code, assert_json_equal_json, assert_json_by_model
 from source.enums.expected import ExpectedJSON
 from source.schemas.payments.payment_accounts.owner_schema import PaymentData
 
+
 @allure.epic('Payments')
 @allure.feature('Payment accounts')
 @allure.story('Owner')
 @allure.suite('Test put owners')
 @pytest.mark.smoke
-
 class TestPaymentPutOwner:
 
     @allure.title('Test payment accounts owner update valid value param payout_day_of_month')
     @allure.description('Проверка успешного ответа [200] при изменении payout_day_of_month валидными значениями')
-    @pytest.mark.parametrize("value", [1, 15, 31])
+    @pytest.mark.parametrize("value", [1, 15, 31, datetime.datetime.now().day])
     def test_payment_accounts_owner_positive_input_valid_value_param_payout_day_of_month_put(self, value):
         """Изменение параметра  payout_day_of_month владельца валидными значениями"""
         print("Запрос PUT")
@@ -31,12 +32,12 @@ class TestPaymentPutOwner:
         assert_status_code(response=response, expected=200)
         print("Response body: " + response.text)
 
+
 @allure.epic('Payments')
 @allure.feature('Payment accounts')
 @allure.story('Owner')
 @allure.suite('Test put owners regression')
 @pytest.mark.regression
-
 class TestPaymentPutOwnerRegression:
     @allure.title('Test payment accounts owner update invalid value param payout_day_of_month')
     @allure.description('Проверка ответа [400] при изменении payout_day_of_month невалидными значениями')
@@ -54,6 +55,7 @@ class TestPaymentPutOwnerRegression:
         if isinstance(value, int) and (value < 1 or value > 31):
             pytest.xfail("failing validation actual status code 200, expected status code 400")
         assert_status_code(response=response, expected=400)
-        expected = ExpectedJSON.key_value(key="payout_day_of_month", value=ExpectedJSON.PAYMENT_ACCOUNTS_OWNER_INVALID_VALUE_PAYOUT_DAY.value)
+        expected = ExpectedJSON.key_value(key="payout_day_of_month",
+                                          value=ExpectedJSON.PAYMENT_ACCOUNTS_OWNER_INVALID_VALUE_PAYOUT_DAY.value)
         assert_json_equal_json(response=response, json=expected)
         print("Response body: " + response.text)
