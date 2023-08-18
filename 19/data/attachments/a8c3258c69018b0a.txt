@@ -1,0 +1,32 @@
+18.08.2023_11:44:05.812746
+REQUEST: POST
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/balances/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "uuid_list": [
+    "aaf5f6b2-d595-486a-8e51-108d3b175445"
+  ]
+}
+
+18.08.2023_11:44:06.260091
+RESPONSE
+status code: 404
+headers: {
+  "Allow": "POST, OPTIONS",
+  "Content-Length": "115",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Fri, 18 Aug 2023 11:44:06 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "detail": "Field user_uuid with next values {UUID('aaf5f6b2-d595-486a-8e51-108d3b175445')} not found in database."
+}
