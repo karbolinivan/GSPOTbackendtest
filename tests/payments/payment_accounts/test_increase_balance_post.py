@@ -3,7 +3,7 @@ import uuid
 import allure
 import pytest
 
-from source.api.payments.payment_accounts import increase_balance
+from source.api.payments.payment_accounts.increase_balance import increase_balance
 from source.base.validator import (assert_status_code, assert_json_by_model)
 from source.schemas.payments.payment_accounts.increase_balance_schema import Increase_Balance
 
