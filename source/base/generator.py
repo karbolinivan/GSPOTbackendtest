@@ -1,5 +1,7 @@
 import allure
+
 from faker import Faker
+import datetime
 
 
 class Generator:
@@ -47,4 +49,19 @@ class Generator:
                     data[key] = fake.word()
                 elif key == 'typeRequirements':
                     data[key] = 'RECOMMEND'
+                elif key == 'payout_type':
+                    data[key] = "bank_card"
+                elif key == 'account_number':
+                    data[key] = Faker().pystr_format(string_format='?#?#?#{{random_int}}{{random_letter}}',
+                                                     letters='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+                elif key == 'is_auto_payout':
+                    data[key] = "true"
+                elif key == 'commission':
+                    data[key] = str(fake.random_int(min=0, max=100))
+                elif key == 'frozen_time':
+                    data[key] = str(fake.random_int(min=0, max=10000000))
+                elif key == 'gift_time':
+                    data[key] = str(fake.random_int(min=0, max=10000000))
+                elif key == 'payout_day_of_month':
+                    data[key] = int(datetime.datetime.now().day)
         return data

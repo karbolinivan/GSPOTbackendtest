@@ -24,6 +24,10 @@ class ExpectedJSON(Enum):
     PAYMENT_ACCOUNTS_OWNER_INVALID_VALUE_GIFT_TIME = ["Duration has wrong format. Use one of these formats instead: [DD] [HH:[MM:]]ss[.uuuuuu]."]
     PAYMENT_ACCOUNTS_OWNER_INVALID_VALUE_PAYOUT_DAY = ["A valid integer is required."]
 
+    PAYMENT_ACCOUNTS_PAYOUT_DATA_INVALID_VALUE_ACCOUNT_NUMBER_YOO_MONEY = ["yoomoney account number should contain only digits"]
+    PAYMENT_ACCOUNTS_PAYOUT_DATA_INVALID_VALUE_PAYOUT_TYPE = ["\"paypal\" is not a valid choice."]
+    PAYMENT_ACCOUNTS_PAYOUT_NO_AVAILABLE_BALANCE = "Developer has not required amount on balance to withdraw"
+
 
     @staticmethod
     def key_value(key, value):
