@@ -1,0 +1,23 @@
+21.08.2023_10:03:58.650460
+REQUEST: DELETE
+url: None
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: null
+
+21.08.2023_10:03:59.291624
+RESPONSE
+status code: 204
+headers: {
+  "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 21 Aug 2023 10:03:59 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}

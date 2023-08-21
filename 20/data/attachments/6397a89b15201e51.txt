@@ -1,0 +1,41 @@
+21.08.2023_10:04:23.129136
+REQUEST: PUT
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/owner/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "commission": "100",
+  "frozen_time": "10",
+  "gift_time": "5",
+  "payout_day_of_month": 4
+}
+
+21.08.2023_10:04:23.793628
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, PUT, PATCH, HEAD, OPTIONS",
+  "Content-Length": "184",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 21 Aug 2023 10:04:23 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "id": 1,
+  "revenue_currency": "RUB",
+  "revenue": "0.00",
+  "income_currency": "RUB",
+  "income": "0.00",
+  "commission": "100.00",
+  "frozen_time": "00:00:10",
+  "gift_time": "00:00:05",
+  "payout_day_of_month": 4
+}

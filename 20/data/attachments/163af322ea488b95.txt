@@ -1,0 +1,42 @@
+21.08.2023_10:04:04.550102
+REQUEST: POST
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/balances/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "uuid_list": [
+    "30fe9f8d-cc8e-455e-9093-b506b0fb7471",
+    "674438b8-dfa8-4204-804f-6fa970959f43"
+  ]
+}
+
+21.08.2023_10:04:05.187132
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "POST, OPTIONS",
+  "Content-Length": "191",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 21 Aug 2023 10:04:05 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: [
+  {
+    "user_uuid": "30fe9f8d-cc8e-455e-9093-b506b0fb7471",
+    "balance": "0.00",
+    "balance_currency": "RUB"
+  },
+  {
+    "user_uuid": "674438b8-dfa8-4204-804f-6fa970959f43",
+    "balance": "0.00",
+    "balance_currency": "RUB"
+  }
+]

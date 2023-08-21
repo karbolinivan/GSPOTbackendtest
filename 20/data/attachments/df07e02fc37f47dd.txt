@@ -1,0 +1,29 @@
+21.08.2023_10:03:46.399561
+REQUEST: GET
+url: https://payments.alpha.g-spot.website/api/v1/external_payments/services/1339/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: null
+
+21.08.2023_10:03:47.016751
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+  "Content-Length": "28",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 21 Aug 2023 10:03:46 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "id": 1339,
+  "name": "quickly"
+}
