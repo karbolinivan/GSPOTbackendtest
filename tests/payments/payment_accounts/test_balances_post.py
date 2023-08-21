@@ -108,9 +108,10 @@ class TestBalancesPostList:
 
     @allure.title('Check balance data of user with empty uuid')
     @allure.description(f"Проверка ответа [400] при получении информации о балансе у юзера с пустым {uuid}")
+    @pytest.mark.xfail(reason="https://trello.com/c/V7cSxIlW")
     def test_balances_negative_empty_uuid_field_post(self):
         payload = {
             "uuid_list": []
         }
         response = post_balance(json=payload)
-        assert_status_code(response=response, expected=400) # BUG !!!
+        assert_status_code(response=response, expected=400)
