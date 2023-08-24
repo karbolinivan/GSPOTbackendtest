@@ -1,0 +1,30 @@
+24.08.2023_16:50:23.496678
+REQUEST: POST
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/create_account/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "user_uuid": "e338adcf-882c-4a6a-8f6d-b7e5c7d375b1"
+}
+
+24.08.2023_16:50:23.881517
+RESPONSE
+status code: 201
+headers: {
+  "Allow": "POST, OPTIONS",
+  "Content-Length": "52",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Thu, 24 Aug 2023 16:50:23 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "user_uuid": "e338adcf-882c-4a6a-8f6d-b7e5c7d375b1"
+}

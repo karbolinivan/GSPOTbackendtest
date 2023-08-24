@@ -1,0 +1,1 @@
+Response body: {"account_number":["yoomoney account number should contain only digits"]}

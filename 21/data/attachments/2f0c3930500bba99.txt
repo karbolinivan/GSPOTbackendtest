@@ -1,0 +1,39 @@
+24.08.2023_16:50:25.255913
+REQUEST: POST
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/increase_balance/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "payment_type": "bank_card",
+  "payment_service": "yookassa",
+  "payment_amount": -1,
+  "user_uuid": "80847c1a-62c5-44f8-8943-f4048680a2c9",
+  "return_url": "string"
+}
+
+24.08.2023_16:50:25.689774
+RESPONSE
+status code: 400
+headers: {
+  "Allow": "POST, OPTIONS",
+  "Content-Length": "77",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Thu, 24 Aug 2023 16:50:25 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "payment_amount": [
+    "Insufficient Funds"
+  ],
+  "return_url": [
+    "Enter a valid URL."
+  ]
+}

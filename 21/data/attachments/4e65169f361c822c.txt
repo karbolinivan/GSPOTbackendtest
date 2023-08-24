@@ -1,0 +1,2 @@
+Запрос PUT
+Response body: {"gift_time":["Duration has wrong format. Use one of these formats instead: [DD] [HH:[MM:]]ss[.uuuuuu]."]}

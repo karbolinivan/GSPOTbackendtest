@@ -1,0 +1,35 @@
+24.08.2023_16:50:34.331732
+REQUEST: PUT
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/owner/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "commission": "",
+  "frozen_time": "10",
+  "gift_time": "5",
+  "payout_day_of_month": 4
+}
+
+24.08.2023_16:50:34.715455
+RESPONSE
+status code: 400
+headers: {
+  "Allow": "GET, PUT, PATCH, HEAD, OPTIONS",
+  "Content-Length": "46",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Thu, 24 Aug 2023 16:50:34 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "commission": [
+    "A valid number is required."
+  ]
+}

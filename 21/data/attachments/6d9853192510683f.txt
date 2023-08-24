@@ -1,0 +1,32 @@
+24.08.2023_16:50:13.746911
+REQUEST: POST
+url: https://payments.alpha.g-spot.website/api/v1/external_payments/services/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "name": "easy"
+}
+
+24.08.2023_16:50:14.217985
+RESPONSE
+status code: 400
+headers: {
+  "Allow": "GET, POST, HEAD, OPTIONS",
+  "Content-Length": "59",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Thu, 24 Aug 2023 16:50:14 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "name": [
+    "payment service with this name already exists."
+  ]
+}

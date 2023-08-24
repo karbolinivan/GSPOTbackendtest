@@ -1,0 +1,1 @@
+Response body: {"account_number":"k8F6Y04767r","is_auto_payout":true,"payout_type":"bank_card"}

@@ -1,0 +1,31 @@
+24.08.2023_16:50:01.639441
+REQUEST: GET
+url: https://games.alpha.g-spot.website/api/v1/utils/filters/platforms
+headers: null
+cookie: None
+auth: None
+data: None
+params: {
+  "limit": null,
+  "offset": null
+}
+json: null
+
+24.08.2023_16:50:02.040732
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, HEAD, OPTIONS",
+  "Content-Length": "9",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Thu, 24 Aug 2023 16:50:01 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: [
+  "Linux"
+]

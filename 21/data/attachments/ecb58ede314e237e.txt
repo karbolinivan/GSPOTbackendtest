@@ -1,0 +1,31 @@
+24.08.2023_16:49:01.073273
+REQUEST: PUT
+url: https://games.alpha.g-spot.website/api/v1/reference/genre/1125/
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: null
+json: {
+  "name": "sister"
+}
+
+24.08.2023_16:49:02.020928
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+  "Content-Length": "27",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Thu, 24 Aug 2023 16:49:01 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "id": 1125,
+  "name": "sister"
+}

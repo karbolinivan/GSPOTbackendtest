@@ -1,0 +1,35 @@
+24.08.2023_16:51:10.173576
+REQUEST: POST
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/payout_data/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "account_number": "55hhgg66",
+  "is_auto_payout": true,
+  "payout_type": "paypal",
+  "user_uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa3"
+}
+
+24.08.2023_16:51:10.582274
+RESPONSE
+status code: 400
+headers: {
+  "Allow": "POST, OPTIONS",
+  "Content-Length": "53",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Thu, 24 Aug 2023 16:51:10 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "payout_type": [
+    "\"paypal\" is not a valid choice."
+  ]
+}

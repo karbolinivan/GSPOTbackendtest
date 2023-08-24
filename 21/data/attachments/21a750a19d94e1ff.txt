@@ -1,0 +1,34 @@
+24.08.2023_16:51:11.071501
+REQUEST: PATCH
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/payout_data/3fa85f64-5717-4562-b3fc-2c963f66afa3/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "account_number": "5566",
+  "is_auto_payout": true,
+  "payout_type": "yoo_money"
+}
+
+24.08.2023_16:51:11.497530
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+  "Content-Length": "73",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Thu, 24 Aug 2023 16:51:11 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "account_number": "5566",
+  "is_auto_payout": true,
+  "payout_type": "yoo_money"
+}

@@ -1,0 +1,32 @@
+24.08.2023_16:50:15.119717
+REQUEST: PUT
+url: https://payments.alpha.g-spot.website/api/v1/external_payments/services/1394/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "name": ""
+}
+
+24.08.2023_16:50:15.547522
+RESPONSE
+status code: 400
+headers: {
+  "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+  "Content-Length": "41",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Thu, 24 Aug 2023 16:50:15 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "name": [
+    "This field may not be blank."
+  ]
+}
