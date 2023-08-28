@@ -1,0 +1,2 @@
+Запрос Get
+Response body: {"id":1,"revenue_currency":"RUB","revenue":"0.00","income_currency":"RUB","income":"0.00","commission":"65.00","frozen_time":"51 21:55:20","gift_time":"113 05:48:12","payout_day_of_month":24}

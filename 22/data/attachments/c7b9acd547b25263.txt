@@ -1,0 +1,1 @@
+Response body: {"account_number":"H0S9m43845L","is_auto_payout":true,"payout_type":"bank_card"}

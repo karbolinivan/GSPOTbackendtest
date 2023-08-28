@@ -1,0 +1,36 @@
+28.08.2023_10:01:50.067991
+REQUEST: POST
+url: https://games.alpha.g-spot.website/api/v1/core/system_requirement/
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: null
+json: {
+  "operatingSystem": "WINDOWS",
+  "deviceProcessor": "morning",
+  "deviceStorage": "popular",
+  "deviceGraphics": "join",
+  "typeRequirements": "RECOMMEND"
+}
+
+28.08.2023_10:01:50.829990
+RESPONSE
+status code: 400
+headers: {
+  "Allow": "GET, POST, HEAD, OPTIONS",
+  "Content-Length": "55",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 28 Aug 2023 10:01:50 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "deviceMemory": [
+    "Обязательное поле."
+  ]
+}

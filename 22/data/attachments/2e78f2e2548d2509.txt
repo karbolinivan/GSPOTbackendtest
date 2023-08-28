@@ -1,0 +1,62 @@
+28.08.2023_10:02:07.707550
+REQUEST: GET
+url: https://games.alpha.g-spot.website/api/v1/reference/languages/
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: {
+  "limit": null,
+  "offset": null
+}
+json: null
+
+28.08.2023_10:02:08.651644
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, POST, HEAD, OPTIONS",
+  "Content-Length": "218",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 28 Aug 2023 10:02:08 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: [
+  {
+    "id": 2,
+    "name": "Uzbek"
+  },
+  {
+    "id": 2360,
+    "name": "primary"
+  },
+  {
+    "id": 2363,
+    "name": "support"
+  },
+  {
+    "id": 9,
+    "name": "center"
+  },
+  {
+    "id": 2419,
+    "name": "synergistic"
+  },
+  {
+    "id": 2420,
+    "name": "deposit"
+  },
+  {
+    "id": 2071,
+    "name": "ru"
+  },
+  {
+    "id": 2072,
+    "name": "ru"
+  }
+]

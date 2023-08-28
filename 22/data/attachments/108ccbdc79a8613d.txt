@@ -1,0 +1,38 @@
+28.08.2023_10:04:13.044120
+REQUEST: POST
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/payout/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "amount": {
+    "value": 500000,
+    "currency": "RUB"
+  },
+  "payout_destination_data": {
+    "type_": "BANK_CARD",
+    "account_number": "456456"
+  },
+  "user_uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa3"
+}
+
+28.08.2023_10:04:13.466174
+RESPONSE
+status code: 400
+headers: {
+  "Allow": "POST, OPTIONS",
+  "Content-Length": "68",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 28 Aug 2023 10:04:13 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "error": "Developer has not required amount on balance to withdraw"
+}

@@ -1,0 +1,28 @@
+28.08.2023_10:03:23.437623
+REQUEST: GET
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/balances/387096df-75b2-446e-b69a-555c84edc2a9/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: null
+
+28.08.2023_10:03:23.811226
+RESPONSE
+status code: 404
+headers: {
+  "Allow": "GET, HEAD, OPTIONS",
+  "Content-Length": "23",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 28 Aug 2023 10:03:23 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "detail": "Not found."
+}

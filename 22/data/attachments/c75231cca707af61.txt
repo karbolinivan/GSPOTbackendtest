@@ -1,0 +1,1 @@
+Response body: {"payout_type":["\"paypal\" is not a valid choice."]}
