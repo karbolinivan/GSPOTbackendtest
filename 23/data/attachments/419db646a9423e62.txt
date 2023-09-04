@@ -1,0 +1,2 @@
+Запрос PUT
+Response body: {"payout_day_of_month":["A valid integer is required."]}

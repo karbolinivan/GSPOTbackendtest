@@ -1,0 +1,205 @@
+04.09.2023_10:03:58.333215
+REQUEST: GET
+url: https://games.alpha.g-spot.website/api/v1/utils/filters/genres
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: {
+  "limit": null,
+  "offset": null
+}
+json: null
+
+04.09.2023_10:03:59.247326
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, HEAD, OPTIONS",
+  "Content-Length": "1658",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 04 Sep 2023 10:03:59 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: [
+  {
+    "id": 834,
+    "name": "decade",
+    "subgenres": []
+  },
+  {
+    "id": 835,
+    "name": "hotel",
+    "subgenres": []
+  },
+  {
+    "id": 836,
+    "name": "compare",
+    "subgenres": []
+  },
+  {
+    "id": 837,
+    "name": "great",
+    "subgenres": []
+  },
+  {
+    "id": 838,
+    "name": "picture",
+    "subgenres": []
+  },
+  {
+    "id": 799,
+    "name": "military",
+    "subgenres": []
+  },
+  {
+    "id": 800,
+    "name": "claim",
+    "subgenres": []
+  },
+  {
+    "id": 801,
+    "name": "money",
+    "subgenres": []
+  },
+  {
+    "id": 802,
+    "name": "scene",
+    "subgenres": []
+  },
+  {
+    "id": 803,
+    "name": "adult",
+    "subgenres": []
+  },
+  {
+    "id": 938,
+    "name": "loyalty",
+    "subgenres": []
+  },
+  {
+    "id": 941,
+    "name": "Cambridgeshire",
+    "subgenres": []
+  },
+  {
+    "id": 575,
+    "name": "CSS",
+    "subgenres": []
+  },
+  {
+    "id": 100,
+    "name": "!@#$",
+    "subgenres": []
+  },
+  {
+    "id": 101,
+    "name": "下来顔文字",
+    "subgenres": []
+  },
+  {
+    "id": 102,
+    "name": "Հայկականتحتاجفقطإلىنسخלבדוק",
+    "subgenres": []
+  },
+  {
+    "id": 103,
+    "name": "En Ru",
+    "subgenres": []
+  },
+  {
+    "id": 105,
+    "name": "SHOTter",
+    "subgenres": []
+  },
+  {
+    "id": 106,
+    "name": "пазл",
+    "subgenres": []
+  },
+  {
+    "id": 107,
+    "name": "Приключения",
+    "subgenres": []
+  },
+  {
+    "id": 108,
+    "name": "mystery",
+    "subgenres": []
+  },
+  {
+    "id": 109,
+    "name": "0123456789",
+    "subgenres": []
+  },
+  {
+    "id": 110,
+    "name": "приключения",
+    "subgenres": []
+  },
+  {
+    "id": 111,
+    "name": "инди",
+    "subgenres": []
+  },
+  {
+    "id": 112,
+    "name": "Пиксельная графика",
+    "subgenres": []
+  },
+  {
+    "id": 113,
+    "name": "Point&Click",
+    "subgenres": []
+  },
+  {
+    "id": 114,
+    "name": "~!@#$%^&()_+!“№;%:?()_+/,?><:”}{[];’,./<>",
+    "subgenres": []
+  },
+  {
+    "id": 115,
+    "name": "😀",
+    "subgenres": []
+  },
+  {
+    "id": 851,
+    "name": "Directives",
+    "subgenres": []
+  },
+  {
+    "id": 726,
+    "name": "Executive",
+    "subgenres": []
+  },
+  {
+    "id": 734,
+    "name": "Cotton",
+    "subgenres": []
+  },
+  {
+    "id": 735,
+    "name": "Avon",
+    "subgenres": []
+  },
+  {
+    "id": 957,
+    "name": "genre_for_products",
+    "subgenres": []
+  },
+  {
+    "id": 737,
+    "name": "Home",
+    "subgenres": []
+  },
+  {
+    "id": 738,
+    "name": "TCP",
+    "subgenres": []
+  }
+]

@@ -1,0 +1,35 @@
+04.09.2023_10:05:25.710924
+REQUEST: POST
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/payout_data/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "account_number": "fdgfhfhd",
+  "is_auto_payout": true,
+  "payout_type": "yoo_money",
+  "user_uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa3"
+}
+
+04.09.2023_10:05:26.191761
+RESPONSE
+status code: 400
+headers: {
+  "Allow": "POST, OPTIONS",
+  "Content-Length": "73",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 04 Sep 2023 10:05:26 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "account_number": [
+    "yoomoney account number should contain only digits"
+  ]
+}

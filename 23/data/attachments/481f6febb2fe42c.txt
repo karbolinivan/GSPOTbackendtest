@@ -1,0 +1,57 @@
+04.09.2023_10:02:18.659267
+REQUEST: GET
+url: https://games.alpha.g-spot.website/api/v1/core/system_requirement/
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: {
+  "limit": null,
+  "offset": null
+}
+json: null
+
+04.09.2023_10:02:19.885327
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, POST, HEAD, OPTIONS",
+  "Content-Length": "565",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 04 Sep 2023 10:02:19 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: [
+  {
+    "id": "affff7bc-ad72-40d6-aa85-4e6aac464c85",
+    "operatingSystem": "LINUX",
+    "deviceProcessor": "string",
+    "deviceMemory": "6",
+    "deviceStorage": "j",
+    "deviceGraphics": "d",
+    "typeRequirements": "MINIMUM"
+  },
+  {
+    "id": "ff24cdf0-9655-4946-8f63-82c8a5ee121b",
+    "operatingSystem": "LINUX",
+    "deviceProcessor": "string",
+    "deviceMemory": "e",
+    "deviceStorage": "y",
+    "deviceGraphics": "d",
+    "typeRequirements": "MINIMUM"
+  },
+  {
+    "id": "10bcf1cb-d9cd-4113-848a-e01255bc5cc2",
+    "operatingSystem": "LINUX",
+    "deviceProcessor": "string",
+    "deviceMemory": "f",
+    "deviceStorage": "m",
+    "deviceGraphics": "p",
+    "typeRequirements": "MINIMUM"
+  }
+]

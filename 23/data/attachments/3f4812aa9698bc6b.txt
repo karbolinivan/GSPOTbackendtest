@@ -1,0 +1,32 @@
+04.09.2023_10:03:59.840860
+REQUEST: GET
+url: https://games.alpha.g-spot.website/api/v1/utils/filters/prices
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: {
+  "limit": null,
+  "offset": null
+}
+json: null
+
+04.09.2023_10:04:00.869202
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, HEAD, OPTIONS",
+  "Content-Length": "34",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 04 Sep 2023 10:04:00 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "minPrice": 1.0,
+  "maxPrice": 2000.0
+}

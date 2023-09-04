@@ -1,0 +1,30 @@
+04.09.2023_10:05:28.980195
+REQUEST: GET
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/payout_data/3fa85f64-5717-4562-b3fc-2c963f66afa3/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: null
+
+04.09.2023_10:05:29.490445
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+  "Content-Length": "80",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 04 Sep 2023 10:05:29 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "account_number": "V0y7H26347n",
+  "is_auto_payout": true,
+  "payout_type": "bank_card"
+}

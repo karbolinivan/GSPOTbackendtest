@@ -1,0 +1,35 @@
+04.09.2023_10:04:54.113375
+REQUEST: PUT
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/owner/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "commission": "10",
+  "frozen_time": "12 11:05:33.6666555765553",
+  "gift_time": "5",
+  "payout_day_of_month": 4
+}
+
+04.09.2023_10:04:54.662032
+RESPONSE
+status code: 400
+headers: {
+  "Allow": "GET, PUT, PATCH, HEAD, OPTIONS",
+  "Content-Length": "108",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Mon, 04 Sep 2023 10:04:54 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "frozen_time": [
+    "Duration has wrong format. Use one of these formats instead: [DD] [HH:[MM:]]ss[.uuuuuu]."
+  ]
+}
