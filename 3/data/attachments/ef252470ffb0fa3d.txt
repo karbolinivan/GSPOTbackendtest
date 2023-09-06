@@ -1,0 +1,1 @@
+Response body: {"account_number":"55gg66","is_auto_payout":true,"payout_type":"bank_card","user_uuid":"3fa85f64-5717-4562-b3fc-2c963f66afa3"}

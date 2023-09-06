@@ -1,0 +1,170 @@
+06.09.2023_09:34:04.509932
+REQUEST: GET
+url: https://games.alpha.g-spot.website/api/v1/reference/genre/
+headers: null
+cookie: None
+auth: ('tester', 'tester')
+data: None
+params: {
+  "limit": null,
+  "offset": null
+}
+json: null
+
+06.09.2023_09:34:05.537401
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, POST, HEAD, OPTIONS",
+  "Content-Length": "1133",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Wed, 06 Sep 2023 09:34:05 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "WSGIServer/0.2 CPython/3.11.4",
+  "Vary": "Accept, Origin, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: [
+  {
+    "id": 834,
+    "name": "decade"
+  },
+  {
+    "id": 835,
+    "name": "hotel"
+  },
+  {
+    "id": 836,
+    "name": "compare"
+  },
+  {
+    "id": 837,
+    "name": "great"
+  },
+  {
+    "id": 838,
+    "name": "picture"
+  },
+  {
+    "id": 799,
+    "name": "military"
+  },
+  {
+    "id": 800,
+    "name": "claim"
+  },
+  {
+    "id": 801,
+    "name": "money"
+  },
+  {
+    "id": 802,
+    "name": "scene"
+  },
+  {
+    "id": 803,
+    "name": "adult"
+  },
+  {
+    "id": 938,
+    "name": "loyalty"
+  },
+  {
+    "id": 941,
+    "name": "Cambridgeshire"
+  },
+  {
+    "id": 575,
+    "name": "CSS"
+  },
+  {
+    "id": 100,
+    "name": "!@#$"
+  },
+  {
+    "id": 101,
+    "name": "下来顔文字"
+  },
+  {
+    "id": 102,
+    "name": "Հայկականتحتاجفقطإلىنسخלבדוק"
+  },
+  {
+    "id": 103,
+    "name": "En Ru"
+  },
+  {
+    "id": 105,
+    "name": "SHOTter"
+  },
+  {
+    "id": 106,
+    "name": "пазл"
+  },
+  {
+    "id": 107,
+    "name": "Приключения"
+  },
+  {
+    "id": 108,
+    "name": "mystery"
+  },
+  {
+    "id": 109,
+    "name": "0123456789"
+  },
+  {
+    "id": 110,
+    "name": "приключения"
+  },
+  {
+    "id": 111,
+    "name": "инди"
+  },
+  {
+    "id": 112,
+    "name": "Пиксельная графика"
+  },
+  {
+    "id": 113,
+    "name": "Point&Click"
+  },
+  {
+    "id": 114,
+    "name": "~!@#$%^&()_+!“№;%:?()_+/,?><:”}{[];’,./<>"
+  },
+  {
+    "id": 115,
+    "name": "😀"
+  },
+  {
+    "id": 851,
+    "name": "Directives"
+  },
+  {
+    "id": 726,
+    "name": "Executive"
+  },
+  {
+    "id": 734,
+    "name": "Cotton"
+  },
+  {
+    "id": 735,
+    "name": "Avon"
+  },
+  {
+    "id": 957,
+    "name": "genre_for_products"
+  },
+  {
+    "id": 737,
+    "name": "Home"
+  },
+  {
+    "id": 738,
+    "name": "TCP"
+  }
+]

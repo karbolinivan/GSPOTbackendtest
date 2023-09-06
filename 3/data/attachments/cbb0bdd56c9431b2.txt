@@ -1,0 +1,36 @@
+06.09.2023_09:36:50.690435
+REQUEST: POST
+url: https://payments.alpha.g-spot.website/api/v1/payment_accounts/payout_data/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "account_number": "A3h0g95915S",
+  "is_auto_payout": "true",
+  "payout_type": "bank_card",
+  "user_uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa3"
+}
+
+06.09.2023_09:36:51.230294
+RESPONSE
+status code: 201
+headers: {
+  "Allow": "POST, OPTIONS",
+  "Content-Length": "131",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Wed, 06 Sep 2023 09:36:51 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "account_number": "A3h0g95915S",
+  "is_auto_payout": true,
+  "payout_type": "bank_card",
+  "user_uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa3"
+}

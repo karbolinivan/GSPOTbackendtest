@@ -1,0 +1,1 @@
+Response body: {"account_number":"A3h0g95915S","is_auto_payout":true,"payout_type":"bank_card"}

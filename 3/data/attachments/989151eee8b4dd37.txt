@@ -1,0 +1,31 @@
+06.09.2023_09:35:44.904559
+REQUEST: PATCH
+url: https://payments.alpha.g-spot.website/api/v1/external_payments/services/1476/
+headers: null
+cookie: None
+auth: None
+data: None
+params: null
+json: {
+  "name": "yookassa"
+}
+
+06.09.2023_09:35:45.417020
+RESPONSE
+status code: 200
+headers: {
+  "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+  "Content-Length": "29",
+  "Content-Type": "application/json",
+  "Cross-Origin-Opener-Policy": "same-origin",
+  "Date": "Wed, 06 Sep 2023 09:35:45 GMT",
+  "Referrer-Policy": "same-origin",
+  "Server": "gunicorn",
+  "Vary": "Accept, Cookie",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY"
+}
+json: {
+  "id": 1476,
+  "name": "yookassa"
+}

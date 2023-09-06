@@ -1,0 +1,1 @@
+Response body: {"account_number":"5566","is_auto_payout":true,"payout_type":"yoo_money"}
