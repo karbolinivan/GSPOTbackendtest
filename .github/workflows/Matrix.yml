@@ -35,6 +35,6 @@ jobs:
         run: docker-compose run autotests python -m source.matrix.update_cases
 
       - name: Debug
-        run: |
-          echo "GITHUB_PARSER: $GITHUB_PARSER"
-          echo "GOOGLE_SHEETS_CREDENTIALS: $GOOGLE_SHEETS_CREDENTIALS"
+        run:
+          - echo ${{ secrets.GITHUB_PARSER }}
+          - echo ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
