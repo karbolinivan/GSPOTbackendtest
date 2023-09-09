@@ -4,7 +4,9 @@ from enum import Enum
 
 class Path(str, Enum):
     GAMES_DB = "../../source/database/games/.env"
-    GAMES_CSV = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../test_data/games.csv"))
+    ALLURE_REPORT = os.path.abspath(os.path.join(os.getcwd(), "../../allure-report/data/behaviors.json"))
+    # TOKEN = os.path.abspath(os.path.join(os.getcwd(), "../../token.json"))
+    # CREDENTIALS = os.path.abspath(os.path.join(os.getcwd(), "../../credentials.json"))
 
     def __str__(self) -> str:
         return self.value

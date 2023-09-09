@@ -1,0 +1,35 @@
+name: Matrix
+
+on:
+  schedule:
+    - cron: '0 5 * * 5'
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Update traceability matrix'
+        required: true
+        default: Update
+        type: choice
+        options:
+          - Update
+
+
+jobs:
+  Autotests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Compose
+        uses: ndeloof/install-compose-action@v0.0.1
+        with:
+          version: v2.1.0
+          legacy: true
+      - run: docker-compose --version
+
+      - name: Update traceability matrix
+        environment:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+        run: docker-compose run autotests python -m source.matrix.update_cases

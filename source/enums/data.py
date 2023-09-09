@@ -1,27 +1,36 @@
 from enum import Enum
-from source.base.reader import Reader
-from source.enums.path import Path
+from source.matrix.sheets import sheets
 
-reader_games = Reader(path_file=Path.GAMES_CSV)
+cases_games = sheets.get_all_rows_with_hyperlink_and_id(sheet="Games", column="B2:B", id_column="A2:A")
 
 
 class Cases(Enum):
-    GAMES = reader_games.get_dict_csv()
+    GAMES = {f"{item['id']}": item for item in cases_games} if cases_games else None
     PAYMENTS = ""
+    TG77 = {
+        "name": "qwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiop"
+    }
+    TG78 = {
+        "name": "qwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopA"
+    }
+    TG88 = {"name": "e"}
+    TG90 = {"name": ""}
+    TG82 = {"name": "1234567890"}
+    TG83 = {"name": "  "}
+    TG84 = {"name": "下来顔文字"}
+    TG85 = {"name": "Հայկականتحتاجفقطإلىنسخלבדוק"}
+    TG86 = {"name": "Ru En"}
+    TG89 = {"name": "!@#$%^&*()_+=-"}
+    TG79 = {"name": " ru"}
+    TG80 = {"name": "ru "}
+    TG87 = {"name": "Ru En"}
+    TG99 = {"name": "  "}
+    TG100 = {"name": ""}
+
+    def __getitem__(self, key):
+        if self.value is None:
+            return {'id': 'None', 'name': 'None', 'link': 'None'}
+        return self.value.get(key, {'id': 'None', 'name': 'None', 'link': 'None'})
 
     def __str__(self):
         return self.value
-
-    def __getitem__(self, key):
-        return self.value[key]
-
-    @classmethod
-    def get_parametrize(cls, service: str, test_case: str):
-        if service.lower() == "games":
-            service_data = cls.GAMES
-        elif service.lower() == "payments":
-            service_data = cls.PAYMENTS
-        else:
-            raise ValueError(f"Unknown service: {service}")
-        data = service_data[test_case]
-        return data["id"], data["name"], data["link"], data["test_data"]
