@@ -308,7 +308,4 @@ class SheetsAPI:
             print(f"Лист '{sheet}' не найден.")
 
 
-sheets = SheetsAPI(
-    credentials_info=Sheets.CREDENTIALS.value,
-    scopes=Sheets.SCOPES.value, spreadsheet_id=Sheets.SPREADSHEET_ID
-)
+sheets = SheetsAPI(credentials_info=Sheets.CREDENTIALS.value, spreadsheet_id=Sheets.SPREADSHEET_ID)
