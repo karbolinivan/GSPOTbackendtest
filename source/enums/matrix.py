@@ -6,7 +6,7 @@ class GitHub(Enum):
     OWNER = 'karbolinivan'
     REPO_DOCS = 'GSPOTtestingdocumentation'
     REPO_TESTS = "GSPOTbackendtest"
-    TOKEN = os.environ.get('GITHUB_TOKEN')
+    TOKEN = os.environ.get('GITHUB_PARSER')
     SERVICES = ["Games"]
     BRANCH_GH = "gh-pages"
 
