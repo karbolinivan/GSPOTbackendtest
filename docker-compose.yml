@@ -6,8 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: GSpot
-#    environment:
-#      - GITHUB_TOKEN==${GITHUB_TOKEN}
-#      - GOOGLE_SHEETS_CREDENTIALS=${GOOGLE_SHEETS_CREDENTIALS}
+    environment:
+      - GITHUB_TOKEN==${{ secrets.GITHUB_TOKEN }}
+      - GOOGLE_SHEETS_CREDENTIALS=${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
     volumes:
       - ./allure-results:/usr/project/allure-results
