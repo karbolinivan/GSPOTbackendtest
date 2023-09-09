@@ -1,4 +1,3 @@
-import os
 import re
 
 from source.enums.matrix import GitHub, Sheets
@@ -6,7 +5,6 @@ from source.enums.path import Path
 from source.matrix.allure_parser import ParserJSON
 from source.matrix.git_parser import GitHubAPI
 from source.matrix.sheets import SheetsAPI
-
 
 if __name__ == "__main__":
     try:

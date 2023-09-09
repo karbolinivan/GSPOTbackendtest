@@ -33,3 +33,8 @@ jobs:
           GITHUB_PARSER: ${{ secrets.GITHUB_PARSER }}
           GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
         run: docker-compose run autotests python -m source.matrix.update_cases
+
+      - name: Debug
+        run: |
+          echo "GITHUB_PARSER: $GITHUB_PARSER"
+          echo "GOOGLE_SHEETS_CREDENTIALS: $GOOGLE_SHEETS_CREDENTIALS"

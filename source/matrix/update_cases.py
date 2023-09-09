@@ -1,11 +1,8 @@
-import os
-
 from source.enums.matrix import GitHub, Sheets
 from source.matrix.git_parser import GitHubAPI
 from source.matrix.sheets import SheetsAPI
 
-print(Sheets.CREDENTIALS.value)
-print(GitHub.TOKEN.value)
+
 if __name__ == "__main__":
     try:
         for service in GitHub.SERVICES.value:
