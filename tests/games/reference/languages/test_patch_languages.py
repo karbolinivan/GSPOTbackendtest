@@ -16,9 +16,9 @@ from source.base.validator import assertions
 @allure.suite('Test patch languages')
 @pytest.mark.smoke
 class TestLanguagesPartialUpdate:
-    @allure.title(f'{Cases.GAMES["TG94"]["id"]}-Test languages partial update')
+    @allure.title(f'{Cases.GAMES["TG95"]["id"]} Test languages partial update')
     @allure.description('Проверка успешного ответа [200] при частичном обновлении языка')
-    @allure.testcase(name=Cases.GAMES["TG94"]["name"], url=Cases.GAMES["TG94"]["link"])
+    @allure.testcase(name=Cases.GAMES["TG95"]["name"], url=Cases.GAMES["TG95"]["link"])
     def test_languages_partial_update(self, create_delete_test_languages):
         id_test = create_delete_test_languages.json().get('id')
 

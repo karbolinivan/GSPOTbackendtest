@@ -17,9 +17,9 @@ from source.schemas.games.product_languages import ProductLanguages
 @pytest.mark.smoke
 @pytest.mark.xfail(reason='Product languages cannot be created')
 class TestProductLanguagesUpdate:
-    @allure.title(f'{Cases.GAMES["TG20"]["id"]}-Test product languages update')
+    @allure.title(f'{Cases.GAMES["TG21"]["id"]} Test product languages update')
     @allure.description('Проверка успешного ответа [200] при обновлении языка продукта')
-    @allure.testcase(name=Cases.GAMES["TG20"]["name"], url=Cases.GAMES["TG20"]["link"])
+    @allure.testcase(name=Cases.GAMES["TG21"]["name"], url=Cases.GAMES["TG21"]["link"])
     def test_languages_update(self, create_delete_test_product_languages):
         id_test = create_delete_test_product_languages.json().get('id')
 

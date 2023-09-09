@@ -14,9 +14,9 @@ from source.schemas.games.genre_games import GenreGames
 @pytest.mark.smoke
 @pytest.mark.xfail(reason='The subgenre must contain required fields')
 class TestFiltersGenres:
-    @allure.title(f'{Cases.GAMES["TG102"]["id"]}-Test filters genres list')
+    @allure.title(f'{Cases.GAMES["TG103"]["id"]} Test filters genres list')
     @allure.description('Проверка успешного ответа [200] при запросе фильтра по жанру игр')
-    @allure.testcase(name=Cases.GAMES["TG102"]["name"], url=Cases.GAMES["TG102"]["link"])
+    @allure.testcase(name=Cases.GAMES["TG103"]["name"], url=Cases.GAMES["TG103"]["link"])
     def test_filters_genres_list(self):
         response = filters.genres_list()
         assertions.status_code(actual=response.status_code, expected=200)

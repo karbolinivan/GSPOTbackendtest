@@ -17,9 +17,9 @@ from source.base.validator import assertions
 @pytest.mark.smoke
 class TestGenreCreate:
 
-    @allure.title(f'{Cases.GAMES["TG74"]["id"]}-Test genre create')
+    @allure.title(f'{Cases.GAMES["TG75"]["id"]} Test genre create')
     @allure.description('Проверка успешного ответа [201] при создании жанра')
-    @allure.testcase(name=Cases.GAMES["TG74"]["name"], url=Cases.GAMES["TG74"]["link"])
+    @allure.testcase(name=Cases.GAMES["TG75"]["name"], url=Cases.GAMES["TG75"]["link"])
     def test_genre_create(self, delete_created_data):
         payload = Generator.object(model=Genre)
         response = genres.create(json=payload)

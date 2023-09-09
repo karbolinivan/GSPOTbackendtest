@@ -18,9 +18,9 @@ from source.schemas.games.laguage_schema import Language
 @allure.suite('Test post languages')
 @pytest.mark.smoke
 class TestLanguagesCreate:
-    @allure.title(f'{Cases.GAMES["TG90"]["id"]}-Test languages create')
-    @allure.description('Проверка успешного ответа [201] при создании языка.')
-    @allure.testcase(name=Cases.GAMES["TG90"]["name"], url=Cases.GAMES["TG90"]["link"])
+    @allure.title(f'{Cases.GAMES["TG91"]["id"]} Test languages create')
+    @allure.description('Проверка успешного ответа [201] при создании языка')
+    @allure.testcase(name=Cases.GAMES["TG91"]["name"], url=Cases.GAMES["TG91"]["link"])
     def test_languages_create(self, delete_created_data):
         payload = Generator.object(model=Language, seed=1)
         response = languages.create(json=payload)
@@ -39,18 +39,16 @@ class TestLanguagesCreate:
 @allure.suite('Regression-tests post languages')
 @pytest.mark.regression
 class TestLanguagesCreateRegression:
-    @allure.title('{id_test_case}-Test languages create with checking the boundary values')
     @allure.description('Проверка граничных значений поля "name" при создании языка')
-    @pytest.mark.parametrize("id_test_case, name, link, value", [
-        Cases.get_parametrize(service="Games", test_case="TG76"),
-        Cases.get_parametrize(service="Games", test_case="TG77"),
-        Cases.get_parametrize(service="Games", test_case="TG87"),
-        Cases.get_parametrize(service="Games", test_case="TG89")
+    @pytest.mark.parametrize("test_case, value", [
+        ("TG77", Cases.TG77.value), ("TG78", Cases.TG78.value),
+        ("TG88", Cases.TG88.value), ("TG90", Cases.TG90.value)
     ])
-    def test_languages_create_with_boundary_values(self, id_test_case, name, link, value, delete_created_data):
-        allure.dynamic.testcase(name=name, url=link)
-        payload = json.loads(value)
-        response = languages.create(json=payload)
+    def test_languages_create_with_boundary_values(self, test_case, value, delete_created_data):
+        allure.dynamic.testcase(name=Cases.GAMES[test_case]["name"], url=Cases.GAMES[test_case]["link"])
+        allure.dynamic.title(f'{Cases.GAMES[test_case]["id"]} Test languages create with checking the boundary values')
+        payload = value
+        response = languages.create(json=value)
         if len(payload["name"]) < 1:
             expected_json = ExpectedJSON.key_value(key='name', value=ExpectedJSON.FIELD_CANNOT_BE_EMPTY_RUS.value)
             assertions.status_code(actual=response.status_code, expected=HTTPStatus.BAD_REQUEST)
@@ -67,20 +65,16 @@ class TestLanguagesCreateRegression:
             id_data = response.json().get("id")
             delete_created_data(api=languages.delete, id_data=id_data)
 
-    @allure.title('{id_test_case}-Test languages create with invalid name')
     @allure.description('Проверка ответа [400] при создании языка c невалидным значением')
-    @pytest.mark.parametrize("id_test_case, name, link, value", [
-        Cases.get_parametrize(service="Games", test_case="TG81"),
-        Cases.get_parametrize(service="Games", test_case="TG82"),
-        Cases.get_parametrize(service="Games", test_case="TG83"),
-        Cases.get_parametrize(service="Games", test_case="TG84"),
-        Cases.get_parametrize(service="Games", test_case="TG85"),
-        Cases.get_parametrize(service="Games", test_case="TG88")
+    @pytest.mark.parametrize("test_case, value", [
+        ("TG82", Cases.TG82.value), ("TG83", Cases.TG83.value), ("TG84", Cases.TG84.value),
+        ("TG85", Cases.TG85.value), ("TG86", Cases.TG86.value), ("TG89", Cases.TG86.value),
     ])
     @pytest.mark.xfail(reason='Should the answer be 400?')
-    def test_languages_create_with_invalid_name(self, id_test_case, name, link, value, delete_created_data):
-        allure.dynamic.testcase(name=name, url=link)
-        payload = json.loads(value)
+    def test_languages_create_with_invalid_name(self, test_case, value, delete_created_data):
+        allure.dynamic.testcase(name=Cases.GAMES[test_case]["name"], url=Cases.GAMES[test_case]["link"])
+        allure.dynamic.title(f'{Cases.GAMES[test_case]["id"]} Test languages create with invalid name')
+        payload = value
         response = languages.create(json=payload)
 
         if response.status_code == 201:
@@ -91,16 +85,14 @@ class TestLanguagesCreateRegression:
         assertions.status_code(actual=response.status_code, expected=HTTPStatus.BAD_REQUEST)
         assertions.json_equal_json(actual=response.json(), expected=expected)
 
-    @allure.title('{id_test_case}-Test languages create with atypical value')
     @allure.description('Проверка ответа [200] при создании нетипичного значения языка')
-    @pytest.mark.parametrize("id_test_case, name, link, value", [
-        Cases.get_parametrize(service="Games", test_case="TG78"),
-        Cases.get_parametrize(service="Games", test_case="TG79"),
-        Cases.get_parametrize(service="Games", test_case="TG86")
+    @pytest.mark.parametrize("test_case, value", [
+        ("TG79", Cases.TG79.value), ("TG80", Cases.TG80.value), ("TG87", Cases.TG87.value),
     ])
-    def test_languages_create_with_atypical_value(self, id_test_case, name, link, value, delete_created_data):
-        allure.dynamic.testcase(name=name, url=link)
-        payload = json.loads(value)
+    def test_languages_create_with_atypical_value(self, test_case, value, delete_created_data):
+        allure.dynamic.testcase(name=Cases.GAMES[test_case]["name"], url=Cases.GAMES[test_case]["link"])
+        allure.dynamic.title(f'{Cases.GAMES[test_case]["id"]} Test languages create with atypical value')
+        payload = value
         response = languages.create(json=payload)
 
         payload['name'] = payload['name'].strip()

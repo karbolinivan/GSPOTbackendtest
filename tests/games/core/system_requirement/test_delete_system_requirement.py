@@ -15,9 +15,9 @@ from source.enums.data import Cases
 @pytest.mark.smoke
 @pytest.mark.xfail(reason='System requirements cannot be created')
 class TestSystemRequirementDelete:
-    @allure.title(f'{Cases.GAMES["TG11"]["id"]}-Test system requirement delete')
+    @allure.title(f'{Cases.GAMES["TG9"]["id"]} Test system requirement delete')
     @allure.description('Проверка успешного ответа [204] при удалении системных требований')
-    @allure.testcase(name=Cases.GAMES["TG11"]["name"], url=Cases.GAMES["TG11"]["link"])
+    @allure.testcase(name=Cases.GAMES["TG9"]["name"], url=Cases.GAMES["TG9"]["link"])
     def test_system_requirement_delete(self, create_test_system_requirement):
         id_test = create_test_system_requirement.json().get('id')
         response = system_requirements.delete(id_data=id_test)

@@ -13,8 +13,8 @@ from http import HTTPStatus
 @allure.suite('Test get community comments')
 @pytest.mark.smoke
 class TestCommunityComments:
-    @allure.title(f'{Cases.GAMES["TG1"]["id"]}-Test community comments read')
-    @allure.description('Проверка успешного ответа [200] при запросе коментариев пользователей.')
+    @allure.title(f'{Cases.GAMES["TG1"]["id"]} Test community comments read')
+    @allure.description('Проверка успешного ответа [200] при запросе комментариев пользователей')
     @allure.testcase(name=Cases.GAMES["TG1"]["name"], url=Cases.GAMES["TG1"]['link'])
     def test_community_comments_read(self):
         id_test = 1

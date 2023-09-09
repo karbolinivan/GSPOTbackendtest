@@ -17,9 +17,9 @@ from source.base.validator import assertions
 @pytest.mark.smoke
 @pytest.mark.xfail(reason='System requirements cannot be created')
 class TestSystemRequirementUpdate:
-    @allure.title(f'{Cases.GAMES["TG14"]["id"]}-Test system requirement update')
+    @allure.title(f'{Cases.GAMES["TG12"]["id"]} Test system requirement update')
     @allure.description('Проверка успешного ответа [201] при обновлении системных требований')
-    @allure.testcase(name=Cases.GAMES["TG14"]["name"], url=Cases.GAMES["TG14"]["link"])
+    @allure.testcase(name=Cases.GAMES["TG12"]["name"], url=Cases.GAMES["TG12"]["link"])
     def test_system_requirement_update(self, create_delete_test_system_requirement):
         id_test = create_delete_test_system_requirement.json().get('id')
         payload = Generator.object(model=SystemRequirement)

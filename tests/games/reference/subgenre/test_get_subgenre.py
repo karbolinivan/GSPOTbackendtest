@@ -15,9 +15,9 @@ from source.schemas.games.subgenre import Subgenre
 @allure.suite('Test get subgenre')
 @pytest.mark.smoke
 class TestSubgenre:
-    @allure.title(f'{Cases.GAMES["TG101"]["id"]}-Test subgenre list')
+    @allure.title(f'{Cases.GAMES["TG102"]["id"]} Test subgenre list')
     @allure.description('Проверка успешного ответа [200] при запросе списка поджанров')
-    @allure.testcase(name=Cases.GAMES["TG101"]["name"], url=Cases.GAMES["TG101"]["link"])
+    @allure.testcase(name=Cases.GAMES["TG102"]["name"], url=Cases.GAMES["TG102"]["link"])
     def test_subgenre_list(self):
         response = subgenres.get_list()
         assertions.status_code(actual=response.status_code, expected=HTTPStatus.OK)

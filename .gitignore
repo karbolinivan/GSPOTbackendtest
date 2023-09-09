@@ -126,3 +126,5 @@ dmypy.json
 allure/
 alureress/
 logs/
+credentials.json
+token.json

@@ -14,9 +14,9 @@ from source.schemas.games.operating_system import OperatingSystem
 @pytest.mark.smoke
 @pytest.mark.xfail(reason='The list items do not match the model')
 class TestFiltersPlatforms:
-    @allure.title(f'{Cases.GAMES["TG103"]["id"]}-Test filters platforms list')
+    @allure.title(f'{Cases.GAMES["TG104"]["id"]} Test filters platforms list')
     @allure.description('Проверка успешного ответа [200] при запросе фильтра по операционной системе')
-    @allure.testcase(name=Cases.GAMES["TG103"]["name"], url=Cases.GAMES["TG103"]["link"])
+    @allure.testcase(name=Cases.GAMES["TG104"]["name"], url=Cases.GAMES["TG104"]["link"])
     def test_filters_platforms_list(self):
         response = filters.platforms_list()
         assertions.status_code(actual=response.status_code, expected=200)

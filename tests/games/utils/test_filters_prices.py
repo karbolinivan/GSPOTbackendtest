@@ -13,9 +13,9 @@ from source.schemas.games.min_max_price import MinMaxPrice
 @allure.suite('Test get filters prices list')
 @pytest.mark.smoke
 class TestFiltersPrices:
-    @allure.title(f'{Cases.GAMES["TG104"]["id"]}-Test filters prices list')
-    @allure.description('Проверка успешного ответа [200] при запросе списка фльтра цены')
-    @allure.testcase(name=Cases.GAMES["TG104"]["name"], url=Cases.GAMES["TG104"]["link"])
+    @allure.title(f'{Cases.GAMES["TG105"]["id"]} Test filters prices list')
+    @allure.description('Проверка успешного ответа [200] при запросе списка фильтра цены')
+    @allure.testcase(name=Cases.GAMES["TG105"]["name"], url=Cases.GAMES["TG105"]["link"])
     def test_filters_prices_list(self):
         response = filters.prices_list()
         assertions.status_code(actual=response.status_code, expected=200)

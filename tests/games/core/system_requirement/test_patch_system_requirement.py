@@ -17,9 +17,9 @@ from source.schemas.games.system_requirement import SystemRequirement
 @pytest.mark.smoke
 @pytest.mark.xfail(reason='System requirements cannot be created')
 class TestSystemRequirementPartialUpdate:
-    @allure.title(f'{Cases.GAMES["TG13"]["id"]}-Test system requirement partial update')
+    @allure.title(f'{Cases.GAMES["TG11"]["id"]} Test system requirement partial update')
     @allure.description('Проверка успешного ответа [200] при частичном обновлении системных требований')
-    @allure.testcase(name=Cases.GAMES["TG13"]["name"], url=Cases.GAMES["TG13"]["link"])
+    @allure.testcase(name=Cases.GAMES["TG11"]["name"], url=Cases.GAMES["TG11"]["link"])
     def test_system_requirement_partial_update(self, create_delete_test_system_requirement):
         id_test = create_delete_test_system_requirement.json().get('id')
         payload = Generator.object(model=SystemRequirement, include='deviceGraphics')
