@@ -1,3 +1,4 @@
+import json
 import os
 from enum import Enum
 
@@ -16,7 +17,7 @@ class GitHub(Enum):
 
 class Sheets(Enum):
     SPREADSHEET_ID = "1s0f-YtiR_4uCymhvGGajjL_-NmDIWFSXl5JikNozppQ"
-    CREDENTIALS = os.environ.get("GOOGLE_SHEETS_CREDENTIALS")
+    CREDENTIALS = json.dumps(os.environ.get("GOOGLE_SHEETS_CREDENTIALS"))
 
     def __str__(self):
         return self.value

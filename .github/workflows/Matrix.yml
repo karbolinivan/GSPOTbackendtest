@@ -33,6 +33,3 @@ jobs:
 
       - name: Update traceability matrix
         run: docker-compose run autotests python -m source.matrix.update_cases
-
-      - name: Debug
-        run: echo "${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}"
