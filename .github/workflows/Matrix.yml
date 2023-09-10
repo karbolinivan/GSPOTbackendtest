@@ -17,6 +17,9 @@ on:
 jobs:
   Autotests:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_PARSER: ${{ secrets.GITHUB_PARSER }}
+      GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -30,10 +33,13 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Update traceability matrix
-        env:
-          GITHUB_PARSER: ${{ secrets.GITHUB_PARSER }}
-          GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
         run: python -m source.matrix.update_cases
+
+      - name: Use the secret
+        run: echo ${{ secrets.GITHUB_PARSER }}
+
+      - name: Use the secret 2
+        run: echo ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
 
 #      - name: Install Compose
 #        uses: ndeloof/install-compose-action@v0.0.1
