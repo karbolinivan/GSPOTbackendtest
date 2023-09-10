@@ -27,7 +27,7 @@ jobs:
           python-version: 3.11
 
       - name: Install dependencies
-        run: pip install -r path/to/requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Update traceability matrix
         env:
