@@ -36,10 +36,10 @@ jobs:
         run: python -m source.matrix.update_cases
 
       - name: Use the secret
-        run: echo ${{ secrets.GITHUB_PARSER }}
+        run: echo "$GITHUB_PARSER"
 
       - name: Use the secret 2
-        run: echo ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+        run: echo "$GOOGLE_SHEETS_CREDENTIALS"
 
 #      - name: Install Compose
 #        uses: ndeloof/install-compose-action@v0.0.1
