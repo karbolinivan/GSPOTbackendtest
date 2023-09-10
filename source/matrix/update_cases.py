@@ -2,6 +2,8 @@ from source.enums.matrix import GitHub, Sheets
 from source.matrix.git_parser import GitHubAPI
 from source.matrix.sheets import SheetsAPI
 
+print(Sheets.CREDENTIALS.value)
+print(GitHub.TOKEN.value)
 
 if __name__ == "__main__":
     try:
@@ -20,6 +22,8 @@ if __name__ == "__main__":
                 for item in git_test_cases
                 if item["name"] not in existing_test_cases
             ]
+
+            print(git_test_cases)
 
             if service == "Games":
                 pattern_id = "TG"

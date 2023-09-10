@@ -17,9 +17,6 @@ on:
 jobs:
   Autotests:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_PARSER: ${{ secrets.GITHUB_PARSER }}
-      GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -32,4 +29,7 @@ jobs:
       - run: docker-compose --version
 
       - name: Update traceability matrix
+        env:
+          GITHUB_PARSER: ${{ secrets.GITHUB_PARSER }}
+          GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
         run: docker-compose run autotests python -m source.matrix.update_cases
